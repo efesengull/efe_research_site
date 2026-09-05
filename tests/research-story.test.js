@@ -7,7 +7,7 @@ const http = require('node:http');
 const crypto = require('node:crypto');
 const {chromium} = require('playwright');
 const root = path.resolve(__dirname, '..');
-const output = path.join(root, 'docs/phase-3/regression');
+const output = path.resolve(root, process.env.TEST_OUTPUT_DIR || 'docs/phase-3/regression');
 fs.mkdirSync(output, {recursive: true});
 const pages = ['index', 'live', 'report', 'portfolio', 'methodology'];
 const sizes = [[1440, 900], [1024, 768], [768, 1024], [390, 844]];
@@ -173,7 +173,7 @@ async function run(){
     check('data.js, app.js, live adapter and downloads SHA-256 unchanged', true);
     check('no JavaScript runtime errors', errors.length === 0);
     fs.writeFileSync(path.join(output, 'test-results.json'), JSON.stringify({checks: results.length, results, errors, thirdPartyNetwork: 'blocked; external TradingView availability not tested'}, null, 2));
-    console.log(`${results.length} checks passed. Screenshots and results: docs/phase-3/regression/`);
+    console.log(`${results.length} checks passed. Screenshots and results: ${output}`);
   }finally{
     await browser.close();
     server.close();

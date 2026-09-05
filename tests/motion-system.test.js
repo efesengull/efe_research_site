@@ -5,7 +5,7 @@ const path = require('node:path');
 const http = require('node:http');
 const {chromium} = require('playwright');
 const root = path.resolve(__dirname, '..');
-const output = path.join(root, 'docs/phase-3');
+const output = path.resolve(root, process.env.TEST_OUTPUT_DIR || 'docs/phase-3');
 const results = [];
 const errors = [];
 function check(name, condition){

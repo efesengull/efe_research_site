@@ -1,0 +1,22 @@
+{
+  "baselineCommit": "6ed3f6a6f2a14cd807b175ab555230fe5e55c48f",
+  "files": {
+    "assets/css/research-os.css": "5940f9abe9cce27053e91dd8e9a88cdf2aee3a23001dd8d418c32bcedc567734",
+    "assets/css/styles.css": "0280505e87d7d167150f39843031b64f12b9446c6c0d45c20b6620e9acfed611",
+    "assets/img/finance-depth-poster.webp": "a0eec4919f9765059bfff14a922e043f7adc5c306a0ee5531851940ad7101321",
+    "assets/img/logo.svg": "3975018b110d9868fb93e0155fc527dd5a2ba32070665f965bfc8cb78f989401",
+    "assets/js/app.js": "767dfc73d2e2a325e9c58c06134e7c02eec53bbde2dc55300f97b940b15a2b47",
+    "assets/js/data.js": "eef42866bf710b0afb4432398e7eed74f89f984d5a3c3798fd24702f9e1807af",
+    "assets/js/finance-3d-background.js": "95980e56e79fb7ea473d122686559b6aa8dcd5723d60dc6d5259a5453e8cd31e",
+    "assets/js/live-adapter.js": "9abe7e00d4603c6f7eabb739a242bf54b6a21dbc3a94e328bf3201384b216dcb",
+    "assets/js/platform-ui.js": "d7f76a3c6520718da74d3fdcb00c1986fa81fa570448d46561a1b07918885d9d",
+    "assets/video/market-motion.webm": "b23d94d10a7e02cbf02fb4ee773a03e2b6fe01a77a5f8689bf06076fe2d547ac",
+    "downloads/BIST_Kurumsal_Final_Degerleme.docx": "b40d1cdc6ee137fc09aab3e21309f7dbc1ca7096ae90bcef8c6395a3107e362d",
+    "downloads/BIST_Rapor_Efe_AI_Profesyonel_Final.docx": "6a78663d8e625a75c3ea77cc1bcd9f1fcc162a0a096a0d2965d0d5d5ea8cdb63",
+    "index.html": "f4593229bbf0b758c2ca3fcf9cbb21b06c0a3be364ff81ab86d192672f41cb85",
+    "live.html": "fe1092f25efc7647e88a6f4a7f49a4f5ac9f9d9108f18b9b813bfbc454096efe",
+    "methodology.html": "e9e8fbe05fa4ec2c63f89ca1d0b0ea5025a1fd8fa29c9f76d908bdfe7a5fd863",
+    "portfolio.html": "a16983416e69aaa0ea1b1445cf4f4aa6474ccb402ee2270b527be773dad701d6",
+    "report.html": "9158a0690d203a54e860d67e68c836d2a5b7c4dcf35cb9a660dc2e938d6d4c63"
+  }
+}

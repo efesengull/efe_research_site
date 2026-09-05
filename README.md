@@ -39,6 +39,8 @@ Faz 2, ana sayfadaki **Sinyalden Karara** bölümüdür. GARAN örneğinde piyas
 
 Faz 3; tek seferlik hero/bölüm girişleri, kısa grafik vurguları, klavye/dokunma tepkileri ve bölüm ilerleme göstergesidir. Hero'daki kontrol video ve Canvas hareketini durdurur. Sayfa geçişleri destekleyen tarayıcılarda kısa bir solma kullanır; reduced-motion altında kapalıdır. Ortak scriptler aynı sırayla head içinde `defer` çalışır; `platform-ui.js` üzerindeki `blocking="render"`, geçiş dinleyicisini ilk çizimden önce hazırlar. Kararlar ve kanıtlar: [Faz 3 raporu](docs/phase-3.md).
 
+Faz 4 değerlendirmesinde WebGL eklenmedi. Mevcut Canvas 2D perspektifi, CSS anlatım katmanları ve SVG mevcut ihtiyacı karşılıyor. Canvas/video/poster arızası, DPR sınırı, mobil sadeleşme ve statik alternatifler doğrulandı; uygulama dosyaları ve `3.4.0` asset sürümü korundu. Karar, yerel ölçümler ve sınırlar: [Faz 4 raporu](docs/phase-4.md).
+
 ## Faz 2 regresyonu ve Faz 3 doğrulaması
 
 ```powershell
@@ -48,6 +50,20 @@ node tests/motion-system.test.js
 ```
 
 Tarayıcı testleri Node.js, Node tarafından çözümlenebilen `playwright` paketi ve Microsoft Edge gerektirir. Gerekirse mevcut Playwright kurulumunun paket dizinini `NODE_PATH` ile, tarayıcı kanalını `BROWSER_CHANNEL` ile belirtin. Bunlar yalnız test gereksinimleridir; sitenin paket kurulumu veya build gereksinimi yoktur. Betikler geçici yerel HTTP sunucuları açar ve bitince kapatır. Yeni sonuçları ve ekran görüntülerini `docs/phase-3/` ve `docs/phase-3/regression/` altında kaydeder; Faz 2 kanıtlarını korur. Üçüncü taraf ağ istekleri bu testlerde kapalıdır; TradingView hizmet erişimini ölçmez.
+
+Faz 4 kontrolleri ve önceki fazın kanıtlarını koruyarak regresyon çalıştırma:
+
+```powershell
+$env:TEST_OUTPUT_DIR='docs/phase-4/regression'
+node tests/research-story.test.js
+$env:TEST_OUTPUT_DIR='docs/phase-4/motion'
+node tests/motion-system.test.js
+$env:TEST_OUTPUT_DIR='docs/phase-4'
+node tests/depth-background.test.js
+Remove-Item Env:TEST_OUTPUT_DIR
+```
+
+`TEST_OUTPUT_DIR` depo köküne göre çözümlenir; verilmezse eski testlerin varsayılan klasörleri değişmez. Yeni derinlik testi varsayılan olarak `docs/phase-4/` kullanır. Çizim komutu ve rAF işlem süresi örnekleri yerel tanı içindir; GPU, pil tüketimi, gerçek cihaz performansı veya Core Web Vitals ölçümü değildir.
 
 Anlatımın JavaScript kapalı HTML karşılığı `index.html` içinde tutulur. İleride yetkili bir veri güncellemesinde bu karşılığı da yeni snapshot ile eşitleyin; tarayıcı testi HTML değerlerinin `data.js` çıktısıyla birebir eşleştiğini denetler. `docs/phase-3/baseline-hashes.json`, bu fazın başındaki data.js, app.js, canlı adaptör ve rapor bütünlük kaydıdır; ileride bilinçli veri değiştirildiğinde yeni faz için ayrı bir başlangıç kaydı oluşturun.
 
