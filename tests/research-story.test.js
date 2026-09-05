@@ -166,11 +166,13 @@ async function run(){
         if(url.hash && path.extname(file) === '.html') assert.ok(fs.readFileSync(file, 'utf8').includes(`id="${url.hash.slice(1)}"`), `${name}: ${link}`);
       }
       check(`${name}: local assets, downloads and anchor targets exist`, true);
-      check(`${name}: asset versions consistent`, (await page.locator('script[src], link[rel="stylesheet"]').evaluateAll(elements => elements.map(el => el.getAttribute('src') || el.getAttribute('href')))).filter(url => url.startsWith('assets/')).every(url => url.endsWith('?v=3.5.0')));
+      check(`${name}: asset versions consistent`, (await page.locator('script[src], link[rel="stylesheet"]').evaluateAll(elements => elements.map(el => el.getAttribute('src') || el.getAttribute('href')))).filter(url => url.startsWith('assets/')).every(url => url.endsWith('?v=3.6.0')));
     }
     const hashes = JSON.parse(fs.readFileSync(path.join(root, 'docs/phase-3/baseline-hashes.json'), 'utf8').replace(/^\uFEFF/, ''));
-    for(const [file, hash] of Object.entries(hashes)) assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root, file))).digest('hex'), hash, file);
-    check('data.js, app.js, live adapter and downloads SHA-256 unchanged', true);
+    // Phase 6 deliberately changes app.js accessibility markup and keyboard behavior.
+    // Financial data, live calculations and downloads retain the original hash guard.
+    for(const [file, hash] of Object.entries(hashes).filter(([file]) => file !== 'assets/js/app.js')) assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root, file))).digest('hex'), hash, file);
+    check('data.js, live adapter and downloads SHA-256 unchanged', true);
     check('no JavaScript runtime errors', errors.length === 0);
     fs.writeFileSync(path.join(output, 'test-results.json'), JSON.stringify({checks: results.length, results, errors, thirdPartyNetwork: 'blocked; external TradingView availability not tested'}, null, 2));
     console.log(`${results.length} checks passed. Screenshots and results: ${output}`);

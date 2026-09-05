@@ -160,7 +160,8 @@ function stockDetailCards(){
       <span class="tag">${s.code}</span>
       <h3>${s.name}</h3>
       <p class="muted">${s.role}</p>
-      <div class="bar"><i style="width:${clamp(s.score * 10, 0, 100)}%"></i></div>
+      <p class="muted">Araştırma skoru: ${s.score.toFixed(1)} / 10</p>
+      <div class="bar" aria-hidden="true"><i style="width:${clamp(s.score * 10, 0, 100)}%"></i></div>
       <p style="margin-top:14px"><b>Doğrulanmış veri:</b> ${s.verified}</p>
       <p style="margin-top:10px"><b>Tez:</b> ${s.strengths}</p>
       <p style="margin-top:10px"><b>Risk:</b> ${s.risks}</p>
@@ -173,7 +174,7 @@ function sourceRows(){
   return sources.map(s => `
     <div class="source">
       <div><b>${s.code} · ${s.name}</b><br><span class="muted">${s.use}</span></div>
-      <a href="${s.url}" target="_blank" rel="noopener">Kaynak</a>
+      <a href="${s.url}" target="_blank" rel="noopener">Kaynak<span class="sr-only">: ${s.code} · ${s.name} (yeni sekme)</span></a>
     </div>
   `).join('');
 }
@@ -232,7 +233,8 @@ function marketTapeRows(){
     const direction = item.change > 0 ? 'is-up' : item.change < 0 ? 'is-down' : 'is-flat';
     const format = item.code === 'USDTRY' || item.code === 'EURTRY' ? 'fx' : item.code === 'BRENT' ? 'usd' : 'index';
     return `
-      <a class="os-tape-item ${direction}" href="live.html#monitor" aria-label="${item.label} ${item.value}">
+      <a class="os-tape-item ${direction}" href="live.html#monitor">
+        <span class="sr-only">${item.label}</span>
         <span><i aria-hidden="true"></i>${item.code}</span>
         <b data-live-symbol="${item.code}" data-live-field="market-price" data-live-format="${format}">${item.value}</b>
         <em data-live-symbol="${item.code}" data-live-field="change">${signedPct(item.change)}</em>
@@ -430,7 +432,7 @@ function correlationRows(){
   return modelCorrelationMatrix.map((row, rowIndex) => `
     <tr>
       ${row.map((cell, colIndex) => {
-        if(rowIndex === 0 || colIndex === 0) return `<th>${cell}</th>`;
+        if(rowIndex === 0 || colIndex === 0) return `<th scope="${rowIndex === 0 ? 'col' : 'row'}">${cell}</th>`;
         const value = Number(cell);
         return `<td><span class="correlation-cell" style="background:${corrColor(value)}">${value.toFixed(2)}</span></td>`;
       }).join('')}
@@ -440,9 +442,12 @@ function correlationRows(){
 
 function bindFilters(){
   document.querySelectorAll('[data-filter]').forEach(btn => {
+    btn.setAttribute('aria-pressed', String(btn.classList.contains('active')));
     btn.addEventListener('click', () => {
-      document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      document.querySelectorAll('[data-filter]').forEach(b => {
+        b.classList.toggle('active', b === btn);
+        b.setAttribute('aria-pressed', String(b === btn));
+      });
       const f = btn.dataset.filter;
       const rows = f === 'all' ? stocks : stocks.filter(s => s.theme.includes(f));
       if(byId('stock-table')){
@@ -459,22 +464,30 @@ function bindMobileNav(){
   const closeMenu = () => {
     document.body.classList.remove('menu-open');
     toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Menüyü aç');
   };
   toggle.addEventListener('click', () => {
     const open = document.body.classList.toggle('menu-open');
     toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Menüyü kapat' : 'Menüyü aç');
   });
   document.querySelectorAll('.links a').forEach(link => {
     link.addEventListener('click', closeMenu);
   });
   document.addEventListener('keydown', event => {
-    if(event.key === 'Escape') closeMenu();
+    if(event.key === 'Escape' && document.body.classList.contains('menu-open')){
+      if(document.querySelector('.links').contains(document.activeElement)) toggle.focus();
+      closeMenu();
+    }
   });
 }
 
 function bindTradingViewPlaceholders(){
   document.querySelectorAll('.live-box').forEach(box => {
     const markLoaded = () => {
+      box.querySelectorAll('iframe').forEach(frame => {
+        if(!frame.title) frame.title = box.parentElement.querySelector('h2')?.textContent || box.closest('section')?.querySelector('h2')?.textContent || 'TradingView piyasa monitörü';
+      });
       if(box.querySelector('iframe')) box.classList.add('is-loaded');
     };
     markLoaded();

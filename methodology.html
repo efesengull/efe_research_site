@@ -6,19 +6,20 @@
   <meta name="theme-color" content="#080b0d">
   <title>Metodoloji | Efe Şengül Research</title>
   <meta name="description" content="Efe Şengül Research metodoloji sayfası: kaynak önceliği, skorlama modeli, canlı veri mimarisi ve 252 iş günü korelasyon hesap protokolü.">
-  <link rel="stylesheet" href="assets/css/styles.css?v=3.5.0">
-  <link rel="stylesheet" href="assets/css/research-os.css?v=3.5.0">
+  <link rel="stylesheet" href="assets/css/styles.css?v=3.6.0">
+  <link rel="stylesheet" href="assets/css/research-os.css?v=3.6.0">
   <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
-  <script defer src="assets/js/data.js?v=3.5.0"></script>
-  <script defer src="assets/js/finance-3d-background.js?v=3.5.0"></script>
-  <script defer src="assets/js/app.js?v=3.5.0"></script>
-  <script defer blocking="render" src="assets/js/platform-ui.js?v=3.5.0"></script>
-  <script defer src="assets/js/live-adapter.js?v=3.5.0"></script>
+  <script defer src="assets/js/data.js?v=3.6.0"></script>
+  <script defer src="assets/js/finance-3d-background.js?v=3.6.0"></script>
+  <script defer src="assets/js/app.js?v=3.6.0"></script>
+  <script defer blocking="render" src="assets/js/platform-ui.js?v=3.6.0"></script>
+  <script defer src="assets/js/live-adapter.js?v=3.6.0"></script>
+<noscript><style>.nav-toggle,[data-open-search],.filters,.capital-control{display:none!important}@media(max-width:860px){.nav{position:relative}.links{position:static;display:flex;box-shadow:none}.nav-inner{flex-wrap:wrap}.links{flex-basis:100%}}</style></noscript>
 </head>
 <body data-page="methodology" data-scene="lattice">
   <div class="market-backdrop" aria-hidden="true"></div>
   <a class="skip-link" href="#main">İçeriğe geç</a>
-  <nav class="nav">
+  <nav class="nav" aria-label="Ana navigasyon">
     <div class="container nav-inner">
       <a class="brand" href="index.html"><span class="brand-mark">EŞ</span><span>Efe Şengül Research<small>Metodoloji ve veri mimarisi</small></span></a>
       <button class="nav-toggle" type="button" aria-controls="site-links" aria-expanded="false" aria-label="Menüyü aç"><span></span></button>
@@ -27,14 +28,14 @@
         <a href="live.html">Piyasa</a>
         <a href="report.html">Araştırma</a>
         <a href="portfolio.html">Portföy</a>
-        <a class="active" href="methodology.html">Metodoloji</a>
+        <a class="active" aria-current="page" href="methodology.html">Metodoloji</a>
         <a class="btn primary small" href="downloads/BIST_Rapor_Efe_AI_Profesyonel_Final.docx">Raporu İndir</a>
       </div>
     </div>
   </nav>
 
   <header class="hero page-hero">
-    <video class="hero-video" muted loop playsinline preload="none" poster="assets/img/finance-depth-poster.webp">
+    <video aria-hidden="true" class="hero-video" muted loop playsinline preload="none" poster="assets/img/finance-depth-poster.webp">
       <source src="assets/video/market-motion.webm" type="video/webm">
     </video>
     <div class="container">
@@ -54,8 +55,8 @@
     </div>
   </header>
 
-  <main id="main">
-    <div class="page-tabs-wrap" aria-label="Metodoloji bölümleri">
+  <main id="main" tabindex="-1">
+    <div class="page-tabs-wrap" role="navigation" aria-label="Metodoloji bölümleri">
       <div class="container page-tabs"><a href="#source-priority-section">Kaynaklar</a><a href="#data-architecture">Veri mimarisi</a><a href="#scoring">Skorlama</a><a href="#correlation-protocol">Korelasyon</a><a href="#method-sources">Referanslar</a></div>
     </div>
     <section id="source-priority-section">
@@ -81,7 +82,7 @@
           </div>
         </div>
         <div class="grid two" id="live-modes"></div>
-        <div class="architecture-flow" aria-label="Canlı veri akışı"><span>Lisanslı veri sağlayıcı</span><i>→</i><span>Sunucu tarafı proxy</span><i>→</i><span>Quote adaptörü</span><i>→</i><span>Araştırma panoları</span></div>
+        <div class="architecture-flow" role="group" aria-label="Canlı veri akışı"><span>Lisanslı veri sağlayıcı</span><i>→</i><span>Sunucu tarafı proxy</span><i>→</i><span>Quote adaptörü</span><i>→</i><span>Araştırma panoları</span></div>
         <div class="code" style="margin-top:18px">window.EFE_RESEARCH_LIVE_CONFIG = {
   provider: 'licensed-vendor',
   endpoint: '/api/quotes',

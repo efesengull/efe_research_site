@@ -7,13 +7,14 @@
   <title>Efe Şengül Research | BIST Karar Destek Merkezi</title>
   <meta name="description" content="BIST araştırma evreni, değerleme, model portföy, risk ve metodoloji katmanlarını tek analist çalışma alanında birleştiren karar destek platformu.">
   <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=3.5.0">
-  <link rel="stylesheet" href="assets/css/research-os.css?v=3.5.0">
-  <script defer src="assets/js/data.js?v=3.5.0"></script>
-  <script defer src="assets/js/finance-3d-background.js?v=3.5.0"></script>
-  <script defer src="assets/js/app.js?v=3.5.0"></script>
-  <script defer blocking="render" src="assets/js/platform-ui.js?v=3.5.0"></script>
-  <script defer src="assets/js/live-adapter.js?v=3.5.0"></script>
+  <link rel="stylesheet" href="assets/css/styles.css?v=3.6.0">
+  <link rel="stylesheet" href="assets/css/research-os.css?v=3.6.0">
+  <script defer src="assets/js/data.js?v=3.6.0"></script>
+  <script defer src="assets/js/finance-3d-background.js?v=3.6.0"></script>
+  <script defer src="assets/js/app.js?v=3.6.0"></script>
+  <script defer blocking="render" src="assets/js/platform-ui.js?v=3.6.0"></script>
+  <script defer src="assets/js/live-adapter.js?v=3.6.0"></script>
+<noscript><style>.nav-toggle,[data-open-search],.filters,.capital-control{display:none!important}@media(max-width:860px){.nav{position:relative}.links{position:static;display:flex;box-shadow:none}.nav-inner{flex-wrap:wrap}.links{flex-basis:100%}}</style></noscript>
 </head>
 <body data-page="home" data-scene="network">
   <div class="market-backdrop" aria-hidden="true"></div>
@@ -27,7 +28,7 @@
       </a>
       <button class="nav-toggle" type="button" aria-controls="site-links" aria-expanded="false" aria-label="Menüyü aç"><span></span></button>
       <div class="links" id="site-links">
-        <a class="active" href="index.html">Kokpit</a>
+        <a class="active" aria-current="page" href="index.html">Kokpit</a>
         <a href="live.html">Piyasa</a>
         <a href="report.html">Araştırma</a>
         <a href="portfolio.html">Portföy</a>
@@ -38,7 +39,7 @@
   </nav>
 
   <header class="hero os-workbench">
-    <video class="hero-video" muted loop playsinline preload="none" poster="assets/img/finance-depth-poster.webp">
+    <video aria-hidden="true" class="hero-video" muted loop playsinline preload="none" poster="assets/img/finance-depth-poster.webp">
       <source src="assets/video/market-motion.webm" type="video/webm">
     </video>
     <div class="container os-workbench-grid">
@@ -52,7 +53,7 @@
           <button class="btn ghost" type="button" data-open-search>Varlık ara <kbd>/</kbd></button>
         </div>
         <a class="text-link os-story-entry" href="#signal-to-decision">Sinyalden Karara <span aria-hidden="true">↓</span></a>
-        <div class="os-briefing-meta" aria-label="Araştırma kapsamı">
+        <div class="os-briefing-meta" role="group" aria-label="Araştırma kapsamı">
           <div><span>Evren</span><b>10 hisse + 10 fon</b></div>
           <div><span>Son fiyat seti</span><b data-lock="marketReferenceDate"></b></div>
           <div><span>Metot</span><b>5 faktör / 252 gün</b></div>
@@ -69,7 +70,7 @@
           <em class="is-up" data-lock="bistDailyChange" data-live-symbol="XU100" data-live-field="change"></em>
           <small><span data-lock="marketReferenceDate"></span> · <span data-lock="marketReferenceTime"></span></small>
         </div>
-        <div class="os-range-chart" aria-label="BIST 100 seans aralığı">
+        <div class="os-range-chart" role="group" aria-label="BIST 100 seans aralığı">
           <span class="os-grid-label top" data-live-symbol="XU100" data-live-field="high">14.066</span>
           <span class="os-grid-label bottom" data-live-symbol="XU100" data-live-field="low">13.895</span>
           <svg viewBox="0 0 640 170" role="img" aria-label="BIST 100 kapanış seansı için görsel ritim">
@@ -96,7 +97,7 @@
         </div>
       </section>
 
-      <aside class="os-signal-panel" aria-label="Değerleme sinyalleri">
+      <aside role="region" class="os-signal-panel" aria-label="Değerleme sinyalleri">
         <div class="os-panel-head">
           <div><span>Karar Omurgası</span><small>Hedef potansiyeline göre</small></div>
           <b>05</b>
@@ -105,13 +106,13 @@
         <a class="os-panel-link" href="report.html#valuation">Tüm değerlemeleri incele <span aria-hidden="true">↗</span></a>
       </aside>
     </div>
-    <div class="container os-tape-shell" aria-label="Piyasa göstergeleri">
+    <div class="container os-tape-shell" role="group" aria-label="Piyasa göstergeleri">
       <div class="os-tape-intro"><span>MARKET TAPE</span><small>04.09 kapanış</small></div>
       <div id="market-tape" class="os-market-tape"></div>
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="os-story" id="signal-to-decision" aria-labelledby="story-title">
       <div class="container">
         <div class="section-head os-story-heading">
@@ -234,7 +235,7 @@
           <div id="market-heatmap" class="os-market-heatmap"></div>
         </div>
 
-        <div class="os-decision-axis" aria-label="Karar araştırma akışı">
+        <div class="os-decision-axis" role="group" aria-label="Karar araştırma akışı">
           <div class="os-panel-label"><span>KARAR AKIŞI</span><b>4 KATMAN</b></div>
           <ol>
             <li class="is-complete"><span>01</span><div><b>Fiyatı doğrula</b><small>4 Eylül kapanış seti</small></div></li>
@@ -245,7 +246,7 @@
           <a class="btn ghost" href="methodology.html">Metodoloji protokolü</a>
         </div>
 
-        <aside class="os-provenance-panel" aria-label="Veri tazelik özeti">
+        <aside role="region" class="os-provenance-panel" aria-label="Veri tazelik özeti">
           <div class="os-freshness-orbit" aria-hidden="true"><span>03</span><i></i></div>
           <div>
             <p class="section-kicker">Veri Nabzı</p>
@@ -290,7 +291,7 @@
           </div>
           <a class="btn" href="report.html#universe">Tam araştırma raporu</a>
         </div>
-        <div class="filters" aria-label="Sektör filtresi">
+        <div class="filters" role="group" aria-label="Sektör filtresi">
           <button class="btn small filter active" data-filter="all">Tümü</button>
           <button class="btn small filter" data-filter="Bankacılık">Bankacılık</button>
           <button class="btn small filter" data-filter="Perakende">Perakende</button>

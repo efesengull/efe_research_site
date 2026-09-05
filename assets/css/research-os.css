@@ -516,12 +516,52 @@ td b,.score{color:var(--ink)}
 .command-input-row,.command-meta,.command-result{border-color:var(--os-line)}
 .command-input-row:focus-within{box-shadow:inset 0 -2px 0 var(--color-focus)}
 .command-result:hover,.command-result.is-selected{background:rgba(114,214,166,.06)}
+.command-result:focus-visible{outline-offset:-3px}
 .result-code{border-radius:var(--radius-xs);color:var(--os-green);background:rgba(114,214,166,.08)}
 .icon-button{border-radius:var(--radius-xs)}
 
 .credibility-band{border-color:var(--os-line);background:#101511}
 .credibility-points>div{border-color:var(--os-line);border-radius:var(--radius-xs);background:#0b0f0d}
 .footer{border-color:var(--os-line);background:#070908}
+
+/* Phase 6: keyboard controls share the same visible focus and scroll clearance. */
+.skip-link{top:0;transform:translateY(-110%)}
+.skip-link:focus{top:14px;transform:none}
+.os-briefing-meta span{color:var(--color-text-muted)}
+.os-briefing{background:rgba(9,13,11,.88)}
+.ticker-toggle{margin-bottom:12px}
+.ticker-toggle:disabled{color:var(--color-text-muted);cursor:default}
+html{scroll-padding-top:calc(var(--shell-sticky-offset) + var(--tabs-h) + var(--space-4))}
+:is(.table-tools input,.command-input-row input,.capital-input input):focus-visible{
+  outline:2px solid var(--color-focus);
+  outline-offset:-3px;
+}
+.table-wrap:focus-visible{outline-offset:-3px}
+th.sortable{padding:0;cursor:default}
+th.sortable::after,th.sortable[data-sort]::after{content:none}
+.table-sort{position:relative;display:block;width:100%;min-height:44px;padding:13px 28px 13px 14px;border:0;background:transparent;color:inherit;text-align:inherit;font:inherit;letter-spacing:inherit;cursor:pointer}
+.table-sort::after{content:"↕";position:absolute;right:10px;color:var(--muted-2)}
+th[data-sort="asc"] .table-sort::after{content:"↑";color:var(--green)}
+th[data-sort="desc"] .table-sort::after{content:"↓";color:var(--green)}
+.table-sort:focus-visible{outline-offset:-3px}
+.table-tools{position:sticky;left:0;max-width:100%}
+.table-tools>div{flex-wrap:wrap}
+.table-tools b{white-space:normal}
+.table-tools [data-row-count]{white-space:normal}
+.command-shell{display:flex;flex-direction:column;max-height:calc(100dvh - 52px)}
+.command-results{min-height:0}
+.command-input-row,.command-meta{flex-shrink:0}
+.command-meta{gap:12px;flex-wrap:wrap}
+.result-copy b,.result-copy small{white-space:normal;overflow-wrap:anywhere}
+.capital-presets{flex-wrap:wrap}
+.market-rail-inner{flex-wrap:wrap;overflow:visible;row-gap:6px;padding-block:4px}
+.rail-feed{white-space:normal}
+.rail-search{flex-shrink:0}
+.os-tape-item em{visibility:visible;clip-path:inset(50%);width:1px;height:1px;overflow:hidden}
+@media (min-width:861px) and (max-width:1120px){
+  .nav .nav-inner{flex-wrap:wrap}
+  .links{flex-wrap:wrap}
+}
 
 @media (max-width:1300px) and (min-width:1121px){
   :root{--os-sidebar:206px}

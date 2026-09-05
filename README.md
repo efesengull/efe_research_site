@@ -33,7 +33,7 @@ Hero alanlarında optimize WebM video, özel 3D poster ve build sistemi gerektir
 
 Faz 1 ortak tasarım kararları `assets/css/styles.css` içindeki semantik token'larda tutulur. `research-os.css`, eski `--os-*` isimlerini bu token'lara bağlar ve sayfa kompozisyonunu yönetir. Yeni bileşenlerde aynı renk, tipografi, boşluk, radius ve hareket token'larını kullanın; ayrı bir tema paleti oluşturmayın. Kullanım kuralları ve doğrulama sonuçları: [Faz 1 tasarım sistemi](docs/phase-1.md).
 
-Beş sayfanın ortak asset sürümü `3.5.0`'dır. Bu sürüm önbellek içindir; finansal snapshot'ın `DATA_LOCK.version` değeriyle aynı olmak zorunda değildir.
+Beş sayfanın ortak asset sürümü `3.6.0`'dır. Bu sürüm önbellek içindir; finansal snapshot'ın `DATA_LOCK.version` değeriyle aynı olmak zorunda değildir.
 
 Faz 2, ana sayfadaki **Sinyalden Karara** bölümüdür. GARAN örneğinde piyasa sinyali, değerleme, risk analizi ve portföy kararı aynı tarihli araştırma setinden okunur. Yeterli ekran alanında doğal kaydırmaya eşlik eden sabit panel kullanılır; mobilde, kısa ekranda ve reduced-motion altında dört aşama sıralı görünür. JavaScript veya observer desteği olmadan da anlatım ve veriler erişilebilirdir. Kararlar ve kanıtlar: [Faz 2 raporu](docs/phase-2.md).
 
@@ -42,6 +42,32 @@ Faz 3; tek seferlik hero/bölüm girişleri, kısa grafik vurguları, klavye/dok
 Faz 4 değerlendirmesinde WebGL eklenmedi. Mevcut Canvas 2D perspektifi, CSS anlatım katmanları ve SVG mevcut ihtiyacı karşılıyor. Canvas/video/poster arızası, DPR sınırı, mobil sadeleşme ve statik alternatifler doğrulandı; uygulama dosyaları ve `3.4.0` asset sürümü korundu. Karar, yerel ölçümler ve sınırlar: [Faz 4 raporu](docs/phase-4.md).
 
 Faz 5, dekoratif Canvas çizimini en fazla 30/s ile sınırlar; hareket hızı geçen zamandan hesaplanır. Mobil/kısa sahnelerde ve düşük kapasite sinyali olan cihazlarda DPR üst sınırı 1,25, diğerlerinde 1,8'dir. Video görünürlük kararı verilmeden ve veri tasarrufu açıkken başlamaz. TradingView scriptleri mevcut yapılandırmalarıyla kutuya 160 px yaklaşınca bir kez yüklenir; observer desteği yoksa doğrudan yüklenir. Ölçümler ve sınırlar: [Faz 5 raporu](docs/phase-5.md).
+
+Faz 6; klavye odağı, arama ve tablo semantiği, durum bildirimleri, büyütülmüş metin, korelasyon tablosunun klavyeyle kaydırılması ve dekoratif medya karşılıklarını iyileştirir. Sermaye alanı yazarken müdahale etmez; alan terk edildiğinde aynı hesaplama kuralları uygulanır. TradingView ticker bandı gizlenebilir; reduced-motion veya genel hareket durdurma altında iframe kaldırılır; tercih etkin olduğu sürece hareket başlatılmaz. Kararlar ve sınırlar: [Faz 6 raporu](docs/phase-6.md).
+
+## Faz 6 erişilebilirlik doğrulaması
+
+```powershell
+node tests/accessibility.test.js
+$env:TEST_OUTPUT_DIR='docs/phase-6/regression'
+node tests/research-story.test.js
+$env:TEST_OUTPUT_DIR='docs/phase-6/motion'
+node tests/motion-system.test.js
+$env:TEST_OUTPUT_DIR='docs/phase-6/performance'
+$env:PERF_FUNCTIONAL_ONLY='1'
+node tests/performance.test.js
+Remove-Item Env:TEST_OUTPUT_DIR,Env:PERF_FUNCTIONAL_ONLY
+```
+
+Erişilebilirlik testi 20 görünüm, 320px reflow, %200 metin, klavye/odak, arama, tablolar, portföy, JS kapalı ve reduced-motion senaryolarını kapsar. Ticker yaşam döngüsü testleri finansal veri içermeyen yerel iframe fixture kullanır; gerçek TradingView arayüzünü veya fiyatlarını doğrulamaz. Test çıktıları `docs/phase-6/` altındadır; `TEST_OUTPUT_DIR` ile başka klasöre yönlendirilebilir.
+
+İsteğe bağlı axe-core 4.10.3 denetimi, ayrıca `axe-core` ve `sharp` test paketlerini gerektirir. Siteye bağımlılık eklenmez. Paketi Node çözümleme yoluna koyun veya `AXE_PATH` ile mevcut `axe.min.js` dosyasını belirtin:
+
+```powershell
+node tests/accessibility-audit.test.js
+```
+
+Beş sayfanın masaüstü/mobil ve açık arama durumlarında 20 tarama yapar. Otomatik kontrast kararının verilemediği metinlerde glif boyasını geçici gizleyerek satır başına dokuz arka plan pikseli örnekler; düzen, medya ve CSS katmanları korunur. Bu örnekleme bütün piksel veya hareketli medya karelerinin kontrast kanıtı değildir. Yalnız başlangıç karşılaştırmasını yeniden üretmek için `A11Y_BASELINE=1`, Git'teki `a780b8e` dosyalarını salt okunur sunar; checkout'u değiştirmez. Erişilebilirlik taraması bir WCAG uygunluk sertifikası değildir.
 
 ## Faz 5 performans doğrulaması
 

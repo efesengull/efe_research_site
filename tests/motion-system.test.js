@@ -117,7 +117,7 @@ async function run(){
     await page.locator('.table-wrap').first().focus();
     check('table region has keyboard focus and visible outline', await page.locator('.table-wrap').first().evaluate(el => el === document.activeElement && getComputedStyle(el).outlineStyle !== 'none'));
     const header = page.locator('th.sortable').first();
-    await header.focus();
+    await header.locator('button').focus();
     await page.keyboard.press('Enter');
     check('sorting remains keyboard operable', await header.getAttribute('aria-sort') === 'ascending');
     await page.screenshot({path: path.join(output, 'table-focus.png')});

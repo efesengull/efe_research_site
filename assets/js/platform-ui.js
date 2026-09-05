@@ -58,6 +58,8 @@
     const lock = typeof DATA_LOCK !== 'undefined' ? DATA_LOCK : {};
     const rail = document.createElement('div');
     rail.className = 'market-rail';
+    rail.setAttribute('role', 'region');
+    rail.setAttribute('aria-label', 'Platform saati ve veri durumu');
     rail.innerHTML = `
       <div class="container market-rail-inner">
         <div class="market-session" data-market-session title="Gösterge resmi tatil takvimini içermez">
@@ -142,15 +144,17 @@
           <input id="research-search-input" type="search" autocomplete="off" placeholder="Hisse, fon veya sayfa ara…">
           <button class="icon-button" value="cancel" aria-label="Aramayı kapat" title="Kapat">×</button>
         </div>
-        <div class="command-meta"><span>Platform araması</span><span>Seçmek için Enter</span></div>
-        <div class="command-results" role="listbox" aria-label="Arama sonuçları"></div>
+        <div class="command-meta"><span role="status" aria-atomic="true" data-search-status></span><span>Tab ile seç · Enter ile aç</span></div>
+        <div class="command-results" role="list" aria-label="Arama sonuçları"></div>
       </form>`;
     document.body.append(dialog);
 
     const input = dialog.querySelector('input');
     const results = dialog.querySelector('.command-results');
+    const status = dialog.querySelector('[data-search-status]');
     const items = searchIndex();
     let visibleItems = [];
+    let opener;
 
     function normalize(value){
       return String(value || '').toLocaleLowerCase('tr-TR').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -160,11 +164,13 @@
       const normalized = normalize(query.trim());
       visibleItems = items.filter(item => !normalized || normalize(`${item.code} ${item.title} ${item.meta} ${item.kind}`).includes(normalized)).slice(0, 12);
       results.replaceChildren();
+      status.textContent = visibleItems.length ? `${visibleItems.length} sonuç gösteriliyor` : 'Sonuç bulunamadı';
 
       if(!visibleItems.length){
         const empty = document.createElement('p');
         empty.className = 'command-empty';
         empty.textContent = 'Eşleşen varlık veya sayfa bulunamadı.';
+        empty.setAttribute('role', 'listitem');
         results.append(empty);
         return;
       }
@@ -173,17 +179,22 @@
         const link = document.createElement('a');
         link.href = item.href;
         link.className = `command-result${index === 0 ? ' is-selected' : ''}`;
-        link.setAttribute('role', 'option');
         link.innerHTML = `<span class="result-code"></span><span class="result-copy"><b></b><small></small></span><span class="result-kind"></span>`;
         link.querySelector('.result-code').textContent = item.code;
         link.querySelector('.result-copy b').textContent = item.title;
         link.querySelector('.result-copy small').textContent = item.meta;
         link.querySelector('.result-kind').textContent = item.kind;
-        results.append(link);
+        const row = document.createElement('div');
+        row.setAttribute('role', 'listitem');
+        row.append(link);
+        results.append(row);
       });
     }
 
     function open(){
+      if(dialog.open) return;
+      opener = document.activeElement;
+      input.value = '';
       render('');
       if(typeof dialog.showModal === 'function') dialog.showModal();
       else dialog.setAttribute('open', '');
@@ -197,7 +208,7 @@
       open();
     });
     document.addEventListener('keydown', event => {
-      const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement && document.activeElement.tagName);
+      const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement && document.activeElement.tagName) || document.activeElement?.isContentEditable;
       if(event.key === '/' && !typing && !event.ctrlKey && !event.metaKey && !event.altKey){
         event.preventDefault();
         open();
@@ -210,6 +221,14 @@
         window.location.href = visibleItems[0].href;
       }
     });
+    dialog.addEventListener('keydown', event => {
+      if(event.key === 'Escape'){
+        event.preventDefault();
+        event.stopPropagation();
+        dialog.close();
+      }
+    });
+    dialog.addEventListener('close', () => { if(opener?.isConnected) opener.focus(); });
     dialog.addEventListener('click', event => {
       if(event.target === dialog) dialog.close();
     });
@@ -233,11 +252,12 @@
     wrapper.tabIndex = 0;
     wrapper.setAttribute('role', 'region');
     wrapper.setAttribute('aria-label', title);
+    table.setAttribute('aria-label', title);
 
     const tools = document.createElement('div');
     tools.className = 'table-tools';
     tools.innerHTML = `
-      <div><b>${title}</b><span data-row-count></span></div>
+      <div><b>${title}</b><span data-row-count role="status" aria-atomic="true"></span></div>
       <label><span class="sr-only">${title} içinde ara</span><input type="search" placeholder="Tabloda ara…" autocomplete="off"></label>`;
     wrapper.insertBefore(tools, table);
     const input = tools.querySelector('input');
@@ -256,17 +276,26 @@
 
     input.addEventListener('input', applyFilter);
     table.querySelectorAll('thead th').forEach((header, columnIndex) => {
-      header.tabIndex = 0;
+      header.scope = 'col';
       header.classList.add('sortable');
-      header.title = 'Sütuna göre sırala';
+      const label = header.textContent.trim();
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'table-sort';
+      button.textContent = label;
+      button.setAttribute('aria-label', `${label}: artan sırala`);
+      header.replaceChildren(button);
       const sort = () => {
         const ascending = header.dataset.sort !== 'asc';
         table.querySelectorAll('thead th').forEach(item => {
           item.removeAttribute('data-sort');
           item.removeAttribute('aria-sort');
+          const control = item.querySelector('.table-sort');
+          control.setAttribute('aria-label', `${control.textContent}: artan sırala`);
         });
         header.dataset.sort = ascending ? 'asc' : 'desc';
         header.setAttribute('aria-sort', ascending ? 'ascending' : 'descending');
+        button.setAttribute('aria-label', `${label}: ${ascending ? 'azalan' : 'artan'} sırala`);
         const rows = [...body.rows];
         rows.sort((a, b) => {
           const left = valueForSort(a.cells[columnIndex]);
@@ -278,30 +307,57 @@
         });
         rows.forEach(row => body.append(row));
         applyFilter();
+        counter.textContent += ` · ${label}: ${ascending ? 'artan' : 'azalan'} sıralama`;
       };
-      header.addEventListener('click', sort);
-      header.addEventListener('keydown', event => {
-        if(event.key === 'Enter' || event.key === ' '){
-          event.preventDefault();
-          sort();
-        }
-      });
+      button.addEventListener('click', sort);
     });
     applyFilter();
 
     window.addEventListener('efe:table-updated', event => {
-      if(!event.detail || event.detail.tableId === body.id) applyFilter();
+      if(!event.detail || event.detail.tableId === body.id){
+        table.querySelectorAll('thead th').forEach(header => {
+          header.removeAttribute('data-sort');
+          header.removeAttribute('aria-sort');
+          const button = header.querySelector('.table-sort');
+          button.setAttribute('aria-label', `${button.textContent}: artan sırala`);
+        });
+        applyFilter();
+      }
     });
   }
 
   function enhanceTables(){
     document.querySelectorAll('.table-wrap').forEach(enhanceTable);
+    const matrix = document.querySelector('#correlation-table');
+    if(matrix){
+      const wrapper = matrix.closest('.table-wrap');
+      wrapper.tabIndex = 0;
+      wrapper.setAttribute('role', 'region');
+      wrapper.setAttribute('aria-label', 'Model korelasyon matrisi · yatay kaydırılabilir');
+    }
+  }
+
+  function observeShellHeight(){
+    if(typeof ResizeObserver === 'undefined') return;
+    const nav = document.querySelector('.nav');
+    const rail = document.querySelector('.market-rail');
+    const desktop = window.matchMedia('(min-width: 1121px)');
+    function update(){
+      const height = (desktop.matches ? rail : nav).offsetHeight;
+      document.documentElement.style.setProperty('--shell-sticky-offset', `${height + 1}px`);
+    }
+    const observer = new ResizeObserver(update);
+    observer.observe(nav);
+    observer.observe(rail);
+    desktop.addEventListener('change', update);
+    update();
   }
 
   function initCapitalSimulator(){
     const input = document.querySelector('#model-capital');
     if(!input) return;
     const presets = document.querySelectorAll('[data-capital]');
+    const status = document.querySelector('#capital-status');
 
     function update(){
       let capital = Number(input.value);
@@ -321,12 +377,16 @@
         const result = capital * (1 + rate / 100);
         el.textContent = formatMoney(result);
       });
-      presets.forEach(button => button.classList.toggle('active', Number(button.dataset.capital) === capital));
+      presets.forEach(button => {
+        const selected = Number(button.dataset.capital) === capital;
+        button.classList.toggle('active', selected);
+        button.setAttribute('aria-pressed', String(selected));
+      });
+      if(status) status.textContent = `${formatMoney(capital)} için dağılım ve senaryolar güncellendi.`;
       window.dispatchEvent(new CustomEvent('efe:capital-change', {detail: {capital}}));
     }
 
     input.addEventListener('change', update);
-    input.addEventListener('input', update);
     presets.forEach(button => button.addEventListener('click', () => {
       input.value = button.dataset.capital;
       update();
@@ -378,11 +438,7 @@
       script.textContent = config.textContent;
       config.replaceWith(script);
     }
-    if(typeof IntersectionObserver === 'undefined'){
-      configs.forEach(load);
-      return;
-    }
-    const observer = new IntersectionObserver(entries => {
+    const observer = typeof IntersectionObserver === 'undefined' ? null : new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if(!entry.isIntersecting || document.hidden) return;
         entry.target.querySelectorAll('script[data-widget-src]').forEach(load);
@@ -390,11 +446,54 @@
       });
     }, {rootMargin: '160px 0px'});
     const boxes = [...new Set(configs.map(config => config.closest('.live-box')))];
-    boxes.forEach(box => observer.observe(box));
+    function observe(box){
+      if(observer) observer.observe(box);
+      else box.querySelectorAll('script[data-widget-src]').forEach(load);
+    }
+    const ticker = configs.find(config => config.dataset.widgetSrc.endsWith('embed-widget-ticker-tape.js'));
+    if(ticker){
+      const box = ticker.closest('.live-box');
+      const container = ticker.closest('.tradingview-widget-container');
+      const template = container.cloneNode(true);
+      const placeholder = box.querySelector('.live-placeholder');
+      const originalMessage = placeholder.textContent;
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let userPaused = false;
+      let removed = false;
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'btn small ticker-toggle';
+      button.dataset.tickerToggle = '';
+      box.before(button);
+      function sync(){
+        const preferencePaused = reduced.matches || document.documentElement.hasAttribute('data-motion-paused');
+        const paused = preferencePaused || userPaused;
+        button.disabled = preferencePaused;
+        button.setAttribute('aria-pressed', String(paused));
+        button.textContent = preferencePaused ? 'Ticker bandı: hareket kapalı' : paused ? 'Ticker bandını göster' : 'Ticker bandını gizle';
+        if(paused && !removed){
+          // Removing the browsing context stops the provider's moving ticker.
+          container.replaceChildren();
+          box.classList.remove('is-loaded');
+          placeholder.textContent = 'Hareketli ticker bandı kapalı. Diğer piyasa monitörlerini aşağıdan inceleyebilirsiniz.';
+          removed = true;
+        }else if(!paused && removed){
+          container.replaceChildren(...template.cloneNode(true).childNodes);
+          placeholder.textContent = originalMessage;
+          removed = false;
+          observe(box);
+        }
+      }
+      button.addEventListener('click', () => { userPaused = !userPaused; sync(); });
+      reduced.addEventListener('change', sync);
+      window.addEventListener('efe:motion-change', sync);
+      sync();
+    }
+    boxes.forEach(observe);
     document.addEventListener('visibilitychange', () => {
       if(!document.hidden) boxes.filter(box => box.querySelector('script[data-widget-src]')).forEach(box => {
-        observer.unobserve(box);
-        observer.observe(box);
+        if(observer) observer.unobserve(box);
+        observe(box);
       });
     });
   }
@@ -407,6 +506,7 @@
     const tabs = document.querySelector('.page-tabs-wrap');
     const status = document.createElement('span');
     status.className = 'section-progress';
+    status.setAttribute('role', 'img');
     // Discrete section progress; no live announcement on every scroll.
     tabs.append(status);
     let boundaries = [];
@@ -661,6 +761,7 @@
 
   function init(){
     createMarketRail();
+    observeShellHeight();
     updateClock();
     window.setInterval(updateClock, 30000);
     createSearchPalette();

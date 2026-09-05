@@ -6,19 +6,20 @@
   <meta name="theme-color" content="#080b0d">
   <title>Portföy | Efe Şengül Research</title>
   <meta name="description" content="100.000 TL model portföy, senaryo analizi, ağırlıklar, risk yönetimi ve model korelasyon matrisi.">
-  <link rel="stylesheet" href="assets/css/styles.css?v=3.5.0">
-  <link rel="stylesheet" href="assets/css/research-os.css?v=3.5.0">
+  <link rel="stylesheet" href="assets/css/styles.css?v=3.6.0">
+  <link rel="stylesheet" href="assets/css/research-os.css?v=3.6.0">
   <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
-  <script defer src="assets/js/data.js?v=3.5.0"></script>
-  <script defer src="assets/js/finance-3d-background.js?v=3.5.0"></script>
-  <script defer src="assets/js/app.js?v=3.5.0"></script>
-  <script defer blocking="render" src="assets/js/platform-ui.js?v=3.5.0"></script>
-  <script defer src="assets/js/live-adapter.js?v=3.5.0"></script>
+  <script defer src="assets/js/data.js?v=3.6.0"></script>
+  <script defer src="assets/js/finance-3d-background.js?v=3.6.0"></script>
+  <script defer src="assets/js/app.js?v=3.6.0"></script>
+  <script defer blocking="render" src="assets/js/platform-ui.js?v=3.6.0"></script>
+  <script defer src="assets/js/live-adapter.js?v=3.6.0"></script>
+<noscript><style>.nav-toggle,[data-open-search],.filters,.capital-control{display:none!important}@media(max-width:860px){.nav{position:relative}.links{position:static;display:flex;box-shadow:none}.nav-inner{flex-wrap:wrap}.links{flex-basis:100%}}</style></noscript>
 </head>
 <body data-page="portfolio" data-scene="orbit">
   <div class="market-backdrop" aria-hidden="true"></div>
   <a class="skip-link" href="#main">İçeriğe geç</a>
-  <nav class="nav">
+  <nav class="nav" aria-label="Ana navigasyon">
     <div class="container nav-inner">
       <a class="brand" href="index.html"><span class="brand-mark">EŞ</span><span>Efe Şengül Research<small>Model portföy</small></span></a>
       <button class="nav-toggle" type="button" aria-controls="site-links" aria-expanded="false" aria-label="Menüyü aç"><span></span></button>
@@ -26,7 +27,7 @@
         <a href="index.html">Kokpit</a>
         <a href="live.html">Piyasa</a>
         <a href="report.html">Araştırma</a>
-        <a class="active" href="portfolio.html">Portföy</a>
+        <a class="active" aria-current="page" href="portfolio.html">Portföy</a>
         <a href="methodology.html">Metodoloji</a>
         <a class="btn primary small" href="downloads/BIST_Rapor_Efe_AI_Profesyonel_Final.docx">Raporu İndir</a>
       </div>
@@ -34,7 +35,7 @@
   </nav>
 
   <header class="hero page-hero">
-    <video class="hero-video" muted loop playsinline preload="none" poster="assets/img/finance-depth-poster.webp">
+    <video aria-hidden="true" class="hero-video" muted loop playsinline preload="none" poster="assets/img/finance-depth-poster.webp">
       <source src="assets/video/market-motion.webm" type="video/webm">
     </video>
     <div class="container">
@@ -54,8 +55,8 @@
     </div>
   </header>
 
-  <main id="main">
-    <div class="page-tabs-wrap" aria-label="Portföy bölümleri">
+  <main id="main" tabindex="-1">
+    <div class="page-tabs-wrap" role="navigation" aria-label="Portföy bölümleri">
       <div class="container page-tabs"><a href="#allocation">Dağılım</a><a href="#portfolio-list">Varlıklar</a><a href="#scenarios">Senaryolar</a><a href="#risk-management">Risk</a><a href="#correlation">Korelasyon</a></div>
     </div>
     <section id="allocation">
@@ -68,9 +69,10 @@
           </div>
         </div>
         <div class="capital-control">
-          <div><label for="model-capital">Model sermaye</label><small>10.000 TL ile 10.000.000 TL arasında test edin</small></div>
-          <div class="capital-input"><input id="model-capital" type="number" min="10000" max="10000000" step="10000" value="100000" inputmode="numeric"><span>TL</span></div>
-          <div class="capital-presets" aria-label="Hazır sermaye değerleri"><button type="button" data-capital="50000">50 bin</button><button type="button" data-capital="100000">100 bin</button><button type="button" data-capital="250000">250 bin</button><button type="button" data-capital="1000000">1 milyon</button></div>
+          <div><label for="model-capital">Model sermaye (TL)</label><small id="capital-help">10.000 TL ile 10.000.000 TL arasında test edin. Alanı terk ettiğinizde hesaplanır; sınır dışı tutarlar bu aralığa alınır.</small></div>
+          <div class="capital-input"><input id="model-capital" aria-describedby="capital-help" type="number" min="10000" max="10000000" step="10000" value="100000" inputmode="numeric"><span>TL</span></div>
+          <div class="capital-presets" role="group" aria-label="Hazır sermaye değerleri"><button type="button" data-capital="50000">50 bin</button><button type="button" data-capital="100000">100 bin</button><button type="button" data-capital="250000">250 bin</button><button type="button" data-capital="1000000">1 milyon</button></div>
+          <p id="capital-status" class="sr-only" role="status" aria-atomic="true"></p>
         </div>
         <div class="grid two">
           <div class="card chart-card"><h3>Portföy ağırlıkları</h3><div id="portfolio-bars" class="bars"></div></div>
@@ -147,7 +149,7 @@
           <a class="btn" href="methodology.html#correlation-protocol">Hesap protokolü</a>
         </div>
         <div class="table-wrap">
-          <table class="correlation-table" id="correlation-table"></table>
+          <table class="correlation-table" id="correlation-table" aria-label="Model korelasyon matrisi"></table>
         </div>
         <div class="notice" style="margin-top:18px"><strong>Gerçek korelasyon protokolü:</strong> 252 işlem günü kapanış fiyatı alınır, günlük log getiriler hesaplanır ve Pearson korelasyonu üretilir. Fonlar için TEFAS fiyat serisi, hisseler için BIST/terminal fiyat serisi kullanılmalıdır.</div>
       </div>

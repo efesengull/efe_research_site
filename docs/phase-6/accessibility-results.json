@@ -1,0 +1,1486 @@
+{
+  "checks": 241,
+  "passed": 241,
+  "failed": 0,
+  "results": [
+    {
+      "name": "index 1440: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "index 1440: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "name": "index 1440: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "index 1440: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "index 1440: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "index 1440: skip link first",
+      "passed": true
+    },
+    {
+      "name": "index 1440: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "index 1024: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "index 1024: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "name": "index 1024: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "index 1024: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "index 1024: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "index 1024: skip link first",
+      "passed": true
+    },
+    {
+      "name": "index 1024: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "index 768: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "index 768: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "name": "index 768: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "index 768: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "index 768: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "index 768: skip link first",
+      "passed": true
+    },
+    {
+      "name": "index 768: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "index 390: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "index 390: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "name": "index 390: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "index 390: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "index 390: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "index 390: skip link first",
+      "passed": true
+    },
+    {
+      "name": "index 390: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "live 1440: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "live 1440: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "live 1440: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "live 1440: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "live 1440: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "live 1440: section navigation named",
+      "passed": true
+    },
+    {
+      "name": "live 1440: skip link first",
+      "passed": true
+    },
+    {
+      "name": "live 1440: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "live 1024: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "live 1024: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "live 1024: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "live 1024: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "live 1024: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "live 1024: section navigation named",
+      "passed": true
+    },
+    {
+      "name": "live 1024: skip link first",
+      "passed": true
+    },
+    {
+      "name": "live 1024: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "live 768: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "live 768: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "live 768: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "live 768: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "live 768: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "live 768: section navigation named",
+      "passed": true
+    },
+    {
+      "name": "live 768: skip link first",
+      "passed": true
+    },
+    {
+      "name": "live 768: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "live 390: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "live 390: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "live 390: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "live 390: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "live 390: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "live 390: section navigation named",
+      "passed": true
+    },
+    {
+      "name": "live 390: skip link first",
+      "passed": true
+    },
+    {
+      "name": "live 390: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "report 1440: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "report 1440: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "name": "report 1440: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "report 1440: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "report 1440: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "report 1440: section navigation named",
+      "passed": true
+    },
+    {
+      "name": "report 1440: skip link first",
+      "passed": true
+    },
+    {
+      "name": "report 1440: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "report 1024: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "report 1024: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "name": "report 1024: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "report 1024: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "report 1024: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "report 1024: section navigation named",
+      "passed": true
+    },
+    {
+      "name": "report 1024: skip link first",
+      "passed": true
+    },
+    {
+      "name": "report 1024: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "report 768: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "report 768: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "name": "report 768: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "report 768: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "report 768: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "report 768: section navigation named",
+      "passed": true
+    },
+    {
+      "name": "report 768: skip link first",
+      "passed": true
+    },
+    {
+      "name": "report 768: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "report 390: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "report 390: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "name": "report 390: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "report 390: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "report 390: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "report 390: section navigation named",
+      "passed": true
+    },
+    {
+      "name": "report 390: skip link first",
+      "passed": true
+    },
+    {
+      "name": "report 390: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "portfolio 1440: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "portfolio 1440: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "name": "portfolio 1440: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "portfolio 1440: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "portfolio 1440: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "portfolio 1440: section navigation named",
+      "passed": true
+    },
+    {
+      "name": "portfolio 1440: skip link first",
+      "passed": true
+    },
+    {
+      "name": "portfolio 1440: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "portfolio 1024: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "portfolio 1024: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "name": "portfolio 1024: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "portfolio 1024: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "portfolio 1024: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "portfolio 1024: section navigation named",
+      "passed": true
+    },
+    {
+      "name": "portfolio 1024: skip link first",
+      "passed": true
+    },
+    {
+      "name": "portfolio 1024: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "portfolio 768: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "portfolio 768: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "name": "portfolio 768: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "portfolio 768: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "portfolio 768: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "portfolio 768: section navigation named",
+      "passed": true
+    },
+    {
+      "name": "portfolio 768: skip link first",
+      "passed": true
+    },
+    {
+      "name": "portfolio 768: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "portfolio 390: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "portfolio 390: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "name": "portfolio 390: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "portfolio 390: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "portfolio 390: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "portfolio 390: section navigation named",
+      "passed": true
+    },
+    {
+      "name": "portfolio 390: skip link first",
+      "passed": true
+    },
+    {
+      "name": "portfolio 390: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "methodology 1440: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "methodology 1440: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "methodology 1440: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "methodology 1440: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "methodology 1440: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "methodology 1440: section navigation named",
+      "passed": true
+    },
+    {
+      "name": "methodology 1440: skip link first",
+      "passed": true
+    },
+    {
+      "name": "methodology 1440: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "methodology 1024: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "methodology 1024: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "methodology 1024: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "methodology 1024: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "methodology 1024: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "methodology 1024: section navigation named",
+      "passed": true
+    },
+    {
+      "name": "methodology 1024: skip link first",
+      "passed": true
+    },
+    {
+      "name": "methodology 1024: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "methodology 768: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "methodology 768: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "methodology 768: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "methodology 768: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "methodology 768: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "methodology 768: section navigation named",
+      "passed": true
+    },
+    {
+      "name": "methodology 768: skip link first",
+      "passed": true
+    },
+    {
+      "name": "methodology 768: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "methodology 390: no page horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "methodology 390: one h1 and ordered headings",
+      "passed": true,
+      "detail": [
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "methodology 390: visible controls have names",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "methodology 390: active page is announced",
+      "passed": true
+    },
+    {
+      "name": "methodology 390: decorative video excluded",
+      "passed": true
+    },
+    {
+      "name": "methodology 390: section navigation named",
+      "passed": true
+    },
+    {
+      "name": "methodology 390: skip link first",
+      "passed": true
+    },
+    {
+      "name": "methodology 390: skip link transfers focus to main",
+      "passed": true
+    },
+    {
+      "name": "mobile menu: keyboard reaches links",
+      "passed": true
+    },
+    {
+      "name": "mobile menu: Escape closes and returns focus",
+      "passed": true
+    },
+    {
+      "name": "search: opening focuses input",
+      "passed": true
+    },
+    {
+      "name": "search: input has visible keyboard focus",
+      "passed": true
+    },
+    {
+      "name": "search: native link results retain semantics",
+      "passed": true
+    },
+    {
+      "name": "search: empty result communicated",
+      "passed": true
+    },
+    {
+      "name": "search: matching asset found",
+      "passed": true
+    },
+    {
+      "name": "search: modal traps keyboard focus",
+      "passed": true
+    },
+    {
+      "name": "search: Escape returns focus to opener",
+      "passed": true
+    },
+    {
+      "name": "search: reopening clears prior query",
+      "passed": true
+    },
+    {
+      "name": "search: Enter follows matching asset link",
+      "passed": true
+    },
+    {
+      "name": "table: focused sort is not obscured by sticky navigation",
+      "passed": true,
+      "detail": {
+        "focused": true,
+        "top": 486.734375,
+        "bottom": 530.734375,
+        "viewport": 900,
+        "blockers": [
+          {
+            "class": "market-rail",
+            "position": "sticky",
+            "top": 0,
+            "bottom": 53,
+            "left": 224,
+            "right": 1440
+          }
+        ]
+      }
+    },
+    {
+      "name": "table: Enter sorts ascending with announced direction",
+      "passed": true
+    },
+    {
+      "name": "table: Space reverses numeric sort",
+      "passed": true
+    },
+    {
+      "name": "table: focused filter is not obscured by sticky navigation",
+      "passed": true,
+      "detail": {
+        "focused": true,
+        "top": 440.9375,
+        "bottom": 476.734375,
+        "viewport": 900,
+        "blockers": [
+          {
+            "class": "market-rail",
+            "position": "sticky",
+            "top": 0,
+            "bottom": 53,
+            "left": 224,
+            "right": 1440
+          }
+        ]
+      }
+    },
+    {
+      "name": "table: text filter leaves matching row",
+      "passed": true
+    },
+    {
+      "name": "table: filtered count announced",
+      "passed": true
+    },
+    {
+      "name": "sector: keyboard filter announces selection and displays four rows",
+      "passed": true
+    },
+    {
+      "name": "capital: focused input is not obscured by sticky navigation",
+      "passed": true,
+      "detail": {
+        "focused": true,
+        "top": 487.5625,
+        "bottom": 529.5625,
+        "viewport": 900,
+        "blockers": [
+          {
+            "class": "market-rail",
+            "position": "sticky",
+            "top": 0,
+            "bottom": 53,
+            "left": 224,
+            "right": 1440
+          },
+          {
+            "class": "page-tabs-wrap",
+            "position": "sticky",
+            "top": 182.1875,
+            "bottom": 231.1875,
+            "left": 224,
+            "right": 1440
+          }
+        ]
+      }
+    },
+    {
+      "name": "capital: keyboard focus visible",
+      "passed": true
+    },
+    {
+      "name": "capital: help and unit associated",
+      "passed": true
+    },
+    {
+      "name": "capital: intermediate typing is not clamped",
+      "passed": true
+    },
+    {
+      "name": "capital: committed input recalculates allocations",
+      "passed": true
+    },
+    {
+      "name": "capital: result announced",
+      "passed": true
+    },
+    {
+      "name": "capital: preset state and scenario updated",
+      "passed": true
+    },
+    {
+      "name": "capital: bounds enforced at commit",
+      "passed": true
+    },
+    {
+      "name": "matrix: table named and row/column headers scoped",
+      "passed": true
+    },
+    {
+      "name": "matrix: scrolling region keyboard reachable",
+      "passed": true
+    },
+    {
+      "name": "matrix: ArrowRight horizontally scrolls table",
+      "passed": true
+    },
+    {
+      "name": "fixture ticker: loaded iframe has meaningful title",
+      "passed": true
+    },
+    {
+      "name": "fixture widgets: normal mode loads all three",
+      "passed": true
+    },
+    {
+      "name": "fixture ticker: hide removes iframe and preserves button focus",
+      "passed": true
+    },
+    {
+      "name": "fixture ticker: hiding preserves both other monitors",
+      "passed": true
+    },
+    {
+      "name": "fixture ticker: show loads a fresh iframe",
+      "passed": true
+    },
+    {
+      "name": "fixture ticker: global motion pause removes iframe and disables ticker control",
+      "passed": true
+    },
+    {
+      "name": "fixture ticker: runtime reduced motion removes ticker only",
+      "passed": true
+    },
+    {
+      "name": "fixture ticker: initial reduced motion sends no ticker request",
+      "passed": true
+    },
+    {
+      "name": "fixture widgets: reduced motion preserves both other monitor requests",
+      "passed": true
+    },
+    {
+      "name": "index: reduced motion pauses video",
+      "passed": true
+    },
+    {
+      "name": "index: reduced motion leaves no running animation",
+      "passed": true
+    },
+    {
+      "name": "reduced motion: all narrative evidence visible and unpinned",
+      "passed": true
+    },
+    {
+      "name": "index: 320px page reflow",
+      "passed": true
+    },
+    {
+      "name": "index: 200% text keeps page within viewport",
+      "passed": true
+    },
+    {
+      "name": "index: 200% text keeps rail search visible within viewport",
+      "passed": true
+    },
+    {
+      "name": "index: enlarged unfocused skip link stays offscreen",
+      "passed": true
+    },
+    {
+      "name": "live: reduced motion pauses video",
+      "passed": true
+    },
+    {
+      "name": "live: reduced motion leaves no running animation",
+      "passed": true
+    },
+    {
+      "name": "live: 320px page reflow",
+      "passed": true
+    },
+    {
+      "name": "live: 200% text keeps page within viewport",
+      "passed": true
+    },
+    {
+      "name": "live: 200% text keeps rail search visible within viewport",
+      "passed": true
+    },
+    {
+      "name": "live: enlarged unfocused skip link stays offscreen",
+      "passed": true
+    },
+    {
+      "name": "report: reduced motion pauses video",
+      "passed": true
+    },
+    {
+      "name": "report: reduced motion leaves no running animation",
+      "passed": true
+    },
+    {
+      "name": "report: 320px page reflow",
+      "passed": true
+    },
+    {
+      "name": "report: 200% text keeps page within viewport",
+      "passed": true
+    },
+    {
+      "name": "report: 200% text keeps rail search visible within viewport",
+      "passed": true
+    },
+    {
+      "name": "report: enlarged unfocused skip link stays offscreen",
+      "passed": true
+    },
+    {
+      "name": "portfolio: reduced motion pauses video",
+      "passed": true
+    },
+    {
+      "name": "portfolio: reduced motion leaves no running animation",
+      "passed": true
+    },
+    {
+      "name": "portfolio: 320px page reflow",
+      "passed": true
+    },
+    {
+      "name": "portfolio: 200% text keeps page within viewport",
+      "passed": true
+    },
+    {
+      "name": "portfolio: 200% text keeps rail search visible within viewport",
+      "passed": true
+    },
+    {
+      "name": "portfolio: enlarged unfocused skip link stays offscreen",
+      "passed": true
+    },
+    {
+      "name": "methodology: reduced motion pauses video",
+      "passed": true
+    },
+    {
+      "name": "methodology: reduced motion leaves no running animation",
+      "passed": true
+    },
+    {
+      "name": "methodology: 320px page reflow",
+      "passed": true
+    },
+    {
+      "name": "methodology: 200% text keeps page within viewport",
+      "passed": true
+    },
+    {
+      "name": "methodology: 200% text keeps rail search visible within viewport",
+      "passed": true
+    },
+    {
+      "name": "methodology: enlarged unfocused skip link stays offscreen",
+      "passed": true
+    },
+    {
+      "name": "index: no JS heading and basic content accessible",
+      "passed": true
+    },
+    {
+      "name": "index: no JS mobile navigation accessible",
+      "passed": true
+    },
+    {
+      "name": "index: no JS no page overflow",
+      "passed": true
+    },
+    {
+      "name": "live: no JS heading and basic content accessible",
+      "passed": true
+    },
+    {
+      "name": "live: no JS mobile navigation accessible",
+      "passed": true
+    },
+    {
+      "name": "live: no JS no page overflow",
+      "passed": true
+    },
+    {
+      "name": "report: no JS heading and basic content accessible",
+      "passed": true
+    },
+    {
+      "name": "report: no JS mobile navigation accessible",
+      "passed": true
+    },
+    {
+      "name": "report: no JS no page overflow",
+      "passed": true
+    },
+    {
+      "name": "portfolio: no JS heading and basic content accessible",
+      "passed": true
+    },
+    {
+      "name": "portfolio: no JS mobile navigation accessible",
+      "passed": true
+    },
+    {
+      "name": "portfolio: no JS no page overflow",
+      "passed": true
+    },
+    {
+      "name": "methodology: no JS heading and basic content accessible",
+      "passed": true
+    },
+    {
+      "name": "methodology: no JS mobile navigation accessible",
+      "passed": true
+    },
+    {
+      "name": "methodology: no JS no page overflow",
+      "passed": true
+    },
+    {
+      "name": "no JavaScript runtime errors",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "errors": [],
+  "limits": "Headless Edge local DOM/keyboard audit; third-party requests blocked except a clearly isolated local iframe fixture for ticker lifecycle (no financial data or real TradingView UI); no screen reader or automatic contrast engine used."
+}

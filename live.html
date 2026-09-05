@@ -6,25 +6,26 @@
   <meta name="theme-color" content="#080b0d">
   <title>Canlı Piyasa | Efe Şengül Research</title>
   <meta name="description" content="BIST 100, ana hisseler, USD/TRY, altın ve global teknoloji teması için TradingView widget destekli canlı piyasa ekranı.">
-  <link rel="stylesheet" href="assets/css/styles.css?v=3.5.0">
-  <link rel="stylesheet" href="assets/css/research-os.css?v=3.5.0">
+  <link rel="stylesheet" href="assets/css/styles.css?v=3.6.0">
+  <link rel="stylesheet" href="assets/css/research-os.css?v=3.6.0">
   <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
-  <script defer src="assets/js/data.js?v=3.5.0"></script>
-  <script defer src="assets/js/finance-3d-background.js?v=3.5.0"></script>
-  <script defer src="assets/js/app.js?v=3.5.0"></script>
-  <script defer blocking="render" src="assets/js/platform-ui.js?v=3.5.0"></script>
-  <script defer src="assets/js/live-adapter.js?v=3.5.0"></script>
+  <script defer src="assets/js/data.js?v=3.6.0"></script>
+  <script defer src="assets/js/finance-3d-background.js?v=3.6.0"></script>
+  <script defer src="assets/js/app.js?v=3.6.0"></script>
+  <script defer blocking="render" src="assets/js/platform-ui.js?v=3.6.0"></script>
+  <script defer src="assets/js/live-adapter.js?v=3.6.0"></script>
+<noscript><style>.nav-toggle,[data-open-search],.filters,.capital-control{display:none!important}@media(max-width:860px){.nav{position:relative}.links{position:static;display:flex;box-shadow:none}.nav-inner{flex-wrap:wrap}.links{flex-basis:100%}}</style></noscript>
 </head>
 <body data-page="live" data-scene="flow">
   <div class="market-backdrop" aria-hidden="true"></div>
   <a class="skip-link" href="#main">İçeriğe geç</a>
-  <nav class="nav">
+  <nav class="nav" aria-label="Ana navigasyon">
     <div class="container nav-inner">
       <a class="brand" href="index.html"><span class="brand-mark">EŞ</span><span>Efe Şengül Research<small>Canlı piyasa panosu</small></span></a>
       <button class="nav-toggle" type="button" aria-controls="site-links" aria-expanded="false" aria-label="Menüyü aç"><span></span></button>
       <div class="links" id="site-links">
         <a href="index.html">Kokpit</a>
-        <a class="active" href="live.html">Piyasa</a>
+        <a class="active" aria-current="page" href="live.html">Piyasa</a>
         <a href="report.html">Araştırma</a>
         <a href="portfolio.html">Portföy</a>
         <a href="methodology.html">Metodoloji</a>
@@ -34,7 +35,7 @@
   </nav>
 
   <header class="hero page-hero">
-    <video class="hero-video" muted loop playsinline preload="none" poster="assets/img/finance-depth-poster.webp">
+    <video aria-hidden="true" class="hero-video" muted loop playsinline preload="none" poster="assets/img/finance-depth-poster.webp">
       <source src="assets/video/market-motion.webm" type="video/webm">
     </video>
     <div class="container">
@@ -54,8 +55,8 @@
     </div>
   </header>
 
-  <main id="main">
-    <div class="page-tabs-wrap" aria-label="Piyasa ekranı bölümleri">
+  <main id="main" tabindex="-1">
+    <div class="page-tabs-wrap" role="navigation" aria-label="Piyasa ekranı bölümleri">
       <div class="container page-tabs"><a href="#ticker">Ticker</a><a href="#monitor">Monitörler</a><a href="#modes">Veri modu</a><a href="#api">API mimarisi</a></div>
     </div>
     <section>
