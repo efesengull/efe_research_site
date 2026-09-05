@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b0d">
+  <title>Canlı Piyasa | Efe Şengül Research</title>
+  <meta name="description" content="BIST 100, ana hisseler, USD/TRY, altın ve global teknoloji teması için TradingView widget destekli canlı piyasa ekranı.">
+  <link rel="stylesheet" href="assets/css/styles.css?v=3.4.0">
+  <link rel="stylesheet" href="assets/css/research-os.css?v=3.4.0">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <script defer src="assets/js/data.js?v=3.4.0"></script>
+  <script defer src="assets/js/finance-3d-background.js?v=3.4.0"></script>
+  <script defer src="assets/js/app.js?v=3.4.0"></script>
+  <script defer blocking="render" src="assets/js/platform-ui.js?v=3.4.0"></script>
+  <script defer src="assets/js/live-adapter.js?v=3.4.0"></script>
+</head>
+<body data-page="live" data-scene="flow">
+  <div class="market-backdrop" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">İçeriğe geç</a>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">EŞ</span><span>Efe Şengül Research<small>Canlı piyasa panosu</small></span></a>
+      <button class="nav-toggle" type="button" aria-controls="site-links" aria-expanded="false" aria-label="Menüyü aç"><span></span></button>
+      <div class="links" id="site-links">
+        <a href="index.html">Kokpit</a>
+        <a class="active" href="live.html">Piyasa</a>
+        <a href="report.html">Araştırma</a>
+        <a href="portfolio.html">Portföy</a>
+        <a href="methodology.html">Metodoloji</a>
+        <a class="btn primary small" href="downloads/BIST_Rapor_Efe_AI_Profesyonel_Final.docx">Raporu İndir</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero page-hero">
+    <video class="hero-video" muted loop playsinline preload="none" poster="assets/img/finance-depth-poster.webp">
+      <source src="assets/video/market-motion.webm" type="video/webm">
+    </video>
+    <div class="container">
+      <span class="eyebrow"><i class="status-dot"></i> Çoklu varlık piyasa monitörü</span>
+      <h1>Piyasa yönünü izleyin, veri niteliğini karıştırmayın.</h1>
+      <p class="lead">BIST çekirdeği, döviz, altın ve global risk göstergeleri tek izleme yüzeyinde. Widget verisinin gecikme durumu sağlayıcıya bağlıdır; lisanslı API bağlı değilse platform bunu açıkça belirtir.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#ticker">Ticker bandı</a>
+        <a class="btn ghost" href="#monitor">Monitörler</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b data-feed-label>Statik araştırma modu</b><span>Aktif veri katmanı</span></div>
+        <div class="stat"><b data-clock="time">--:--</b><span>İstanbul platform saati</span></div>
+        <div class="stat"><b>BIST</b><span>Lisanslı veri gerektirir</span></div>
+        <div class="stat"><b>60 sn</b><span>Örnek yenileme aralığı</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-tabs-wrap" aria-label="Piyasa ekranı bölümleri">
+      <div class="container page-tabs"><a href="#ticker">Ticker</a><a href="#monitor">Monitörler</a><a href="#modes">Veri modu</a><a href="#api">API mimarisi</a></div>
+    </div>
+    <section>
+      <div class="container">
+        <div class="notice"><strong>Canlı veri gerçeği:</strong> Borsa İstanbul verileri gerçek zamanlı, gecikmeli ve gün sonu olarak lisanslı veri sağlayıcılar üzerinden dağıtılır. Bu sayfa, kod tarafında TradingView widget ile çalışır; kurumsal gerçek zamanlı veri için Matriks, Foreks, iDeal veya BIST lisanslı data vendor entegrasyonu gerekir.</div>
+      </div>
+    </section>
+
+    <section id="ticker">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Ticker Bandı</p>
+            <h2 class="section-title">Ana sembolleri hızlı izleme alanı.</h2>
+            <p class="section-sub">Widget verisinin gerçek zamanlı veya gecikmeli olması TradingView ve ilgili borsa lisans durumuna bağlıdır.</p>
+          </div>
+        </div>
+        <div class="live-box compact">
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {"symbols":[{"proName":"BIST:XU100","title":"BIST 100"},{"proName":"BIST:GARAN","title":"GARAN"},{"proName":"BIST:YKBNK","title":"YKBNK"},{"proName":"BIST:AKBNK","title":"AKBNK"},{"proName":"BIST:TUPRS","title":"TUPRS"},{"proName":"BIST:ASELS","title":"ASELS"},{"proName":"BIST:BIMAS","title":"BIMAS"},{"proName":"BIST:THYAO","title":"THYAO"},{"proName":"FX_IDC:USDTRY","title":"USD/TRY"},{"proName":"OANDA:XAUUSD","title":"Altın"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"tr"}
+            </script>
+          </div>
+          <div class="live-placeholder">TradingView ticker bandı yükleniyor veya ağ erişimi bekleniyor.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="monitor">
+      <div class="container grid two">
+        <div>
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">BIST Odak Listesi</p>
+              <h2 class="section-title">Raporun ana hisseleri.</h2>
+              <p class="section-sub">Ana takip ekranı BIST çekirdeği ve makro varlıkları aynı widget içinde gösterir.</p>
+            </div>
+          </div>
+          <div class="live-box">
+            <div class="tradingview-widget-container" style="height:100%;width:100%">
+              <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+              {"colorTheme":"dark","dateRange":"12M","showChart":true,"locale":"tr","largeChartUrl":"","isTransparent":true,"showSymbolLogo":true,"showFloatingTooltip":false,"width":"100%","height":"100%","plotLineColorGrowing":"rgba(53, 196, 159, 1)","plotLineColorFalling":"rgba(239, 102, 119, 1)","gridLineColor":"rgba(255, 255, 255, 0.06)","scaleFontColor":"rgba(203, 213, 225, 1)","belowLineFillColorGrowing":"rgba(53, 196, 159, 0.14)","belowLineFillColorFalling":"rgba(239, 102, 119, 0.12)","belowLineFillColorGrowingBottom":"rgba(53, 196, 159, 0)","belowLineFillColorFallingBottom":"rgba(239, 102, 119, 0)","symbolActiveColor":"rgba(53, 196, 159, 0.16)","tabs":[{"title":"BIST Çekirdek","symbols":[{"s":"BIST:XU100","d":"BIST 100"},{"s":"BIST:GARAN","d":"GARAN"},{"s":"BIST:YKBNK","d":"YKBNK"},{"s":"BIST:AKBNK","d":"AKBNK"},{"s":"BIST:TUPRS","d":"TUPRS"},{"s":"BIST:ASELS","d":"ASELS"},{"s":"BIST:BIMAS","d":"BIMAS"},{"s":"BIST:TCELL","d":"TCELL"},{"s":"BIST:THYAO","d":"THYAO"}]},{"title":"Makro","symbols":[{"s":"FX_IDC:USDTRY","d":"USD/TRY"},{"s":"OANDA:XAUUSD","d":"XAU/USD"},{"s":"TVC:DXY","d":"DXY"},{"s":"NASDAQ:NDX","d":"Nasdaq 100"}]}]}
+              </script>
+            </div>
+            <div class="live-placeholder">BIST odak listesi widgetı yükleniyor veya ağ erişimi bekleniyor.</div>
+          </div>
+        </div>
+        <div>
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">XU100 Detay</p>
+              <h2 class="section-title">Endeks ve çekirdek hisseler.</h2>
+              <p class="section-sub">Karar öncesi hızlı piyasa yönü kontrolü için tasarlanmıştır.</p>
+            </div>
+          </div>
+          <div class="live-box">
+            <div class="tradingview-widget-container" style="height:100%;width:100%">
+              <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+              {"symbols":[["BIST 100","BIST:XU100|1D"],["Garanti","BIST:GARAN|1D"],["Tüpraş","BIST:TUPRS|1D"],["Aselsan","BIST:ASELS|1D"]],"chartOnly":false,"width":"100%","height":"100%","locale":"tr","colorTheme":"dark","autosize":true,"showVolume":false,"showMA":false,"hideDateRanges":false,"hideMarketStatus":false,"hideSymbolLogo":false,"scalePosition":"right","scaleMode":"Normal","fontFamily":"Inter, sans-serif","fontSize":"10","noTimeScale":false,"valuesTracking":"1","changeMode":"price-and-percent","chartType":"area","lineWidth":2,"lineType":0,"dateRanges":["1d|1","1m|30","3m|60","12m|1D","60m|1W","all|1M"]}
+              </script>
+            </div>
+            <div class="live-placeholder">XU100 detay widgetı yükleniyor veya ağ erişimi bekleniyor.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="modes">
+      <div class="container">
+        <div class="section-head compact-head">
+          <div>
+            <p class="section-kicker">Veri Çalışma Modları</p>
+            <h2 class="section-title">İzleme verisi ile karar verisini ayıran iki katman.</h2>
+            <p class="section-sub">Widget katmanı hızlı bağlam sağlar. Portföy ve değerleme hesaplarını güncelleyen API katmanı ise lisanslı ve zaman damgalı veri bekler.</p>
+          </div>
+        </div>
+        <div class="grid two" id="live-modes"></div>
+      </div>
+    </section>
+
+    <section id="api" class="band">
+      <div class="container">
+        <div class="section-head compact-head">
+          <div>
+            <p class="section-kicker">API Entegrasyon Alanı</p>
+            <h2 class="section-title">Lisanslı veri için güvenli sunucu proxy mimarisi hazır.</h2>
+            <p class="section-sub">API anahtarları statik HTML içine yazılmaz. Tarayıcı yalnızca aynı alan adındaki güvenli quote endpoint'ine bağlanır.</p>
+          </div>
+        </div>
+        <details class="technical-disclosure">
+          <summary><span>API entegrasyon ayrıntıları</span><small>Konfigürasyon, veri sözleşmesi ve kurulum adımları</small></summary>
+          <div class="technical-body">
+        <div class="code">window.EFE_RESEARCH_LIVE_CONFIG = {
+  provider: 'licensed-vendor',
+  endpoint: '/api/quotes',
+  indexSymbol: 'XU100',
+  refreshMs: 60000
+};</div>
+        <div class="section-head" style="margin-top:28px">
+          <div>
+            <p class="section-kicker">Kurulum Adımları</p>
+            <h2 class="section-title">Widget modundan API moduna geçiş.</h2>
+            <p class="section-sub">Bu adımlar tamamlandığında canlı fiyatlar değerleme panosuna ve portföy ekranına bağlanabilir.</p>
+          </div>
+        </div>
+        <div class="process" id="api-steps"></div>
+        <div class="code" style="margin-top:18px">Beklenen örnek endpoint çıktısı:
+GET /api/quotes?symbols=GARAN,YKBNK,AKBNK,TUPRS,XU100
+
+{
+  "GARAN": {
+    "price": 131.40,
+    "changePct": 0.00,
+    "time": "2026-09-04T18:10:00+03:00"
+  },
+  "XU100": {
+    "price": 14012.42,
+    "time": "2026-09-04T18:30:00+03:00"
+  }
+}</div>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><b>Efe Şengül Research</b><div class="disclaimer">Bilgilendirme amaçlıdır; yatırım tavsiyesi değildir.</div></div>
+      <div class="footer-meta"><span>Fiyat snapshot: <b data-lock="marketReferenceDate"></b></span><span>Platform: <b data-clock="date"></b></span></div>
+    </div>
+  </footer>
+</body>
+</html>

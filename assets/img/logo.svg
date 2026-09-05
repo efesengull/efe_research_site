@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="180" viewBox="0 0 640 180" fill="none">
+  <rect width="640" height="180" rx="18" fill="#07111F"/>
+  <rect x="32" y="32" width="116" height="116" rx="16" fill="url(#g)"/>
+  <path d="M61 121V59h55v13H77v12h34v13H77v11h41v13H61Z" fill="#07111F"/>
+  <path d="M166 65h112v14H166V65Zm0 36h148v14H166v-14Z" fill="#F2D68B"/>
+  <text x="166" y="145" fill="#EEF5FF" font-family="Inter, Arial" font-size="32" font-weight="800">Efe Şengül Research</text>
+  <defs>
+    <linearGradient id="g" x1="32" y1="32" x2="148" y2="148" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D9B15F"/>
+      <stop offset="1" stop-color="#FFF0B8"/>
+    </linearGradient>
+  </defs>
+</svg>

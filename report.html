@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b0d">
+  <title>Rapor | Efe Şengül Research</title>
+  <meta name="description" content="Borsa İstanbul yatırım araştırma raporunun web sürümü: yönetici özeti, değerleme panosu, hisse/fon evreni, karar kuralları ve kaynakça.">
+  <link rel="stylesheet" href="assets/css/styles.css?v=3.4.0">
+  <link rel="stylesheet" href="assets/css/research-os.css?v=3.4.0">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <script defer src="assets/js/data.js?v=3.4.0"></script>
+  <script defer src="assets/js/finance-3d-background.js?v=3.4.0"></script>
+  <script defer src="assets/js/app.js?v=3.4.0"></script>
+  <script defer blocking="render" src="assets/js/platform-ui.js?v=3.4.0"></script>
+  <script defer src="assets/js/live-adapter.js?v=3.4.0"></script>
+</head>
+<body data-page="report" data-scene="report">
+  <div class="market-backdrop" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">İçeriğe geç</a>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">EŞ</span><span>Efe Şengül Research<small>Kaynak kontrollü rapor</small></span></a>
+      <button class="nav-toggle" type="button" aria-controls="site-links" aria-expanded="false" aria-label="Menüyü aç"><span></span></button>
+      <div class="links" id="site-links">
+        <a href="index.html">Kokpit</a>
+        <a href="live.html">Piyasa</a>
+        <a class="active" href="report.html">Araştırma</a>
+        <a href="portfolio.html">Portföy</a>
+        <a href="methodology.html">Metodoloji</a>
+        <a class="btn primary small" href="downloads/BIST_Rapor_Efe_AI_Profesyonel_Final.docx">Raporu İndir</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero page-hero">
+    <video class="hero-video" muted loop playsinline preload="none" poster="assets/img/finance-depth-poster.webp">
+      <source src="assets/video/market-motion.webm" type="video/webm">
+    </video>
+    <div class="container">
+      <span class="eyebrow"><i class="status-dot"></i> Eylül 2026 araştırma snapshot'ı</span>
+      <h1>Tezden karara uzanan BIST araştırma dosyası.</h1>
+      <p class="lead">Değerleme, temel tez, risk, karar kuralı ve kaynak kalitesi aynı çalışma yüzeyinde. Fiyat alanları lisanslı API bağlanana kadar açıkça tarihli snapshot olarak gösterilir.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="downloads/BIST_Rapor_Efe_AI_Profesyonel_Final.docx">Word dosyasını indir</a>
+        <a class="btn ghost" href="#valuation">Değerleme panosu</a>
+        <a class="btn ghost" href="#sources">Kaynakça</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b data-lock="bistReference"></b><span>BIST 100 · <span data-lock="marketReferenceDate"></span></span></div>
+        <div class="stat"><b data-lock="inflationYE"></b><span>2026 yıl sonu TÜFE beklentisi</span></div>
+        <div class="stat"><b data-lock="inflation12m"></b><span>12 ay sonrası TÜFE beklentisi</span></div>
+        <div class="stat"><b data-lock="macroDate"></b><span>Makro beklenti güncellemesi</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="page-tabs-wrap" aria-label="Araştırma bölümleri">
+      <div class="container page-tabs"><a href="#summary">Özet</a><a href="#valuation">Değerleme</a><a href="#universe">Hisseler</a><a href="#fund-universe">Fonlar</a><a href="#sources">Kaynaklar</a></div>
+    </div>
+    <section id="summary">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Yönetici Özeti</p>
+            <h2 class="section-title">Ana yatırım omurgası net, kontrol alanları ayrı.</h2>
+            <p class="section-sub">Raporun ana teması; yüksek faizden kademeli gevşemeye geçiş, bankacılık karlılığında toparlanma, TUPRS/ASELS ile değer-büyüme kombinasyonu ve savunmacı perakende/telekom dengesidir.</p>
+          </div>
+        </div>
+        <div class="grid three">
+          <article class="card"><span class="tag green">Omurga</span><h3>Bankacılık + TUPRS + ASELS</h3><p>Çekirdek büyüme ve değer katmanı; perakende/telekom ile savunmacı gelir dengesi.</p></article>
+          <article class="card"><span class="tag blue">Koruma</span><h3>AFT + AAL + KZL + IPV</h3><p>Döviz, teknoloji, para piyasası, altın ve Eurobond katmanları tek yönlü BIST riskini azaltır.</p></article>
+          <article class="card"><span class="tag">Disiplin</span><h3>Kaynaklı karar panosu</h3><p>Güncel fiyat, hedef fiyat, çarpan ve yukarı potansiyel yatırım öncesi tekrar kontrol edilir.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Kontrol ve Revizyon Özeti</p>
+            <h2 class="section-title">Raporun kurumsal araştırma standardına yaklaşan alanları.</h2>
+          </div>
+        </div>
+        <div class="table-wrap" data-table-title="Revizyon günlüğü">
+          <table>
+            <thead><tr><th>Önceki eksik</th><th>Final düzeltme</th><th>Yatırım etkisi</th></tr></thead>
+            <tbody id="correction-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="valuation">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Karar Öncesi Değerleme Panosu</p>
+            <h2 class="section-title">Fiyat, hedef, yukarı potansiyel ve karar etiketi.</h2>
+            <p class="section-sub">Bu tablo 4 Eylül 2026 kapanış fiyatlarını ve aynı tarihli kurum hedef/çarpan snapshot’ını kullanır. Piyasa verileri hızla değiştiği için işlem öncesi lisanslı terminal veya aracı kurum ekranıyla yeniden kontrol edilmelidir.</p>
+          </div>
+        </div>
+        <div class="valuation-grid" id="valuation-cards"></div>
+        <div class="table-wrap" data-table-title="Değerleme panosu" style="margin-top:18px">
+          <table>
+            <thead><tr><th>Hisse</th><th>Snapshot / API fiyatı</th><th>Hedef fiyat</th><th>Yukarı potansiyel</th><th>Yöntem</th><th>Kritik çarpanlar</th><th>Karar</th></tr></thead>
+            <tbody id="valuation-table"></tbody>
+          </table>
+        </div>
+        <p class="tv-note">Not: Bankalar için FD/FAVÖK uygulanmaz. Hedef fiyatlarda farklı kurum/konsensüs verileri arasında fark olabilir; karar sırasında tek kaynak değil, konsensüs ve aracı kurum raporu birlikte değerlendirilmelidir.</p>
+      </div>
+    </section>
+
+    <section class="dark-band">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Karar Kuralları</p>
+            <h2 class="section-title">Alım, tutma ve azaltma kararları sayısal eşiğe bağlanır.</h2>
+            <p class="section-sub">Raporun hedefi kesin emir vermek değil, karar öncesi araştırma ve portföy tasarım çerçevesi oluşturmaktır.</p>
+          </div>
+        </div>
+        <div class="grid four" id="decision-rules"></div>
+      </div>
+    </section>
+
+    <section id="universe">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Revize Hisse Evreni</p>
+            <h2 class="section-title">Hisse kartları öncesi ana liste.</h2>
+            <p class="section-sub">Aşağıdaki liste doğrudan alım emri değil, karar öncesi araştırma evrenidir.</p>
+          </div>
+        </div>
+        <div class="table-wrap" data-table-title="Hisse araştırma evreni">
+          <table>
+            <thead><tr><th>Sıra</th><th>Kod</th><th>Tema</th><th>Risk</th><th>Not</th><th>Rol</th><th>Karar</th></tr></thead>
+            <tbody id="stock-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="fund-universe">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Revize Fon Evreni</p>
+            <h2 class="section-title">Fon tekrarı temizlendi, Eurobond katmanı eklendi.</h2>
+            <p class="section-sub">YEF-TIE tekrarının yerine IPV Eurobond fonu eklendi. Risk, ücret, stopaj ve valör alanları <span data-lock="fundReferenceDate"></span> fon kurucusu/KAP kontrollerini yansıtır; yatırımcı ve alış tarihine bağlı vergi koşulları işlem öncesi yeniden teyit edilmelidir.</p>
+          </div>
+        </div>
+        <div class="table-wrap" data-table-title="Fon araştırma evreni">
+          <table>
+            <thead><tr><th>Sıra</th><th>Kod</th><th>Son fiyat</th><th>Günlük</th><th>Tür</th><th>Risk</th><th>Ücret</th><th>Stopaj</th><th>Valör</th><th>Rol</th></tr></thead>
+            <tbody id="fund-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Hisse Kartları</p>
+            <h2 class="section-title">Her varlık için tez, risk ve izleme kuralı.</h2>
+            <p class="section-sub">Kartlar rapordaki doğrulanmış verileri ve senaryo aralıklarını hızlı taranabilir hale getirir.</p>
+          </div>
+        </div>
+        <div id="stock-detail-cards" class="grid two"></div>
+      </div>
+    </section>
+
+    <section id="sources" class="band">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Kaynakça ve Veri Prensibi</p>
+            <h2 class="section-title">Resmi kaynaklar üstte, widgetlar destek katmanında.</h2>
+            <p class="section-sub">Rapor ve site verisi için güvenilirlik hiyerarşisi metodoloji sayfasında ayrıca açıklanır.</p>
+          </div>
+          <a class="btn" href="methodology.html#source-priority-section">Kaynak hiyerarşisi</a>
+        </div>
+        <div id="source-list" class="source-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><b>Efe Şengül Research</b><div class="disclaimer">Bilgilendirme amaçlıdır; yatırım tavsiyesi değildir.</div></div>
+      <div class="footer-meta"><span>Rapor: <b data-lock="dataDate"></b></span><span>Platform: <b data-clock="date"></b></span></div>
+    </div>
+  </footer>
+</body>
+</html>

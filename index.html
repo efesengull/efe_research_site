@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b0d">
+  <title>Efe Şengül Research | BIST Karar Destek Merkezi</title>
+  <meta name="description" content="BIST araştırma evreni, değerleme, model portföy, risk ve metodoloji katmanlarını tek analist çalışma alanında birleştiren karar destek platformu.">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css?v=3.4.0">
+  <link rel="stylesheet" href="assets/css/research-os.css?v=3.4.0">
+  <script defer src="assets/js/data.js?v=3.4.0"></script>
+  <script defer src="assets/js/finance-3d-background.js?v=3.4.0"></script>
+  <script defer src="assets/js/app.js?v=3.4.0"></script>
+  <script defer blocking="render" src="assets/js/platform-ui.js?v=3.4.0"></script>
+  <script defer src="assets/js/live-adapter.js?v=3.4.0"></script>
+</head>
+<body data-page="home" data-scene="network">
+  <div class="market-backdrop" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">İçeriğe geç</a>
+
+  <nav class="nav" aria-label="Ana navigasyon">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Efe Şengül Research ana sayfa">
+        <span class="brand-mark">EŞ</span>
+        <span>Efe Şengül Research<small>BIST karar destek merkezi</small></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-controls="site-links" aria-expanded="false" aria-label="Menüyü aç"><span></span></button>
+      <div class="links" id="site-links">
+        <a class="active" href="index.html">Kokpit</a>
+        <a href="live.html">Piyasa</a>
+        <a href="report.html">Araştırma</a>
+        <a href="portfolio.html">Portföy</a>
+        <a href="methodology.html">Metodoloji</a>
+        <a class="btn primary small" href="downloads/BIST_Rapor_Efe_AI_Profesyonel_Final.docx">Raporu indir</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero os-workbench">
+    <video class="hero-video" muted loop playsinline preload="none" poster="assets/img/finance-depth-poster.webp">
+      <source src="assets/video/market-motion.webm" type="video/webm">
+    </video>
+    <div class="container os-workbench-grid">
+      <section class="os-briefing" aria-labelledby="workspace-title">
+        <div class="os-panel-label"><span>TR / EQUITY RESEARCH</span><b>DESK 01</b></div>
+        <p class="section-kicker">Günlük Yatırım Brifingi</p>
+        <h1 id="workspace-title">Veriyi karara dönüştüren BIST araştırma masası.</h1>
+        <p class="lead">Piyasa fiyatı, kurum hedefi, portföy rolü ve risk eşiğini aynı analitik akışta okuyun.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="report.html#valuation">Araştırma masasını aç</a>
+          <button class="btn ghost" type="button" data-open-search>Varlık ara <kbd>/</kbd></button>
+        </div>
+        <a class="text-link os-story-entry" href="#signal-to-decision">Sinyalden Karara <span aria-hidden="true">↓</span></a>
+        <div class="os-briefing-meta" aria-label="Araştırma kapsamı">
+          <div><span>Evren</span><b>10 hisse + 10 fon</b></div>
+          <div><span>Son fiyat seti</span><b data-lock="marketReferenceDate"></b></div>
+          <div><span>Metot</span><b>5 faktör / 252 gün</b></div>
+        </div>
+      </section>
+
+      <section class="os-index-panel" aria-label="BIST 100 kapanış özeti">
+        <div class="os-panel-head">
+          <div><span>BIST 100 / XU100</span><small>Kapanış snapshot’ı</small></div>
+          <span class="os-source-chip">Bulls + Bloomberg HT</span>
+        </div>
+        <div class="os-index-value">
+          <strong data-lock="bistReference" data-live-symbol="XU100" data-live-field="market-price" data-live-format="index"></strong>
+          <em class="is-up" data-lock="bistDailyChange" data-live-symbol="XU100" data-live-field="change"></em>
+          <small><span data-lock="marketReferenceDate"></span> · <span data-lock="marketReferenceTime"></span></small>
+        </div>
+        <div class="os-range-chart" aria-label="BIST 100 seans aralığı">
+          <span class="os-grid-label top" data-live-symbol="XU100" data-live-field="high">14.066</span>
+          <span class="os-grid-label bottom" data-live-symbol="XU100" data-live-field="low">13.895</span>
+          <svg viewBox="0 0 640 170" role="img" aria-label="BIST 100 kapanış seansı için görsel ritim">
+            <defs>
+              <linearGradient id="osLine" x1="0" y1="0" x2="640" y2="0">
+                <stop stop-color="#7aa7ff"/>
+                <stop offset=".55" stop-color="#72d6a6"/>
+                <stop offset="1" stop-color="#e2ba68"/>
+              </linearGradient>
+              <linearGradient id="osArea" x1="0" y1="0" x2="0" y2="170">
+                <stop stop-color="#72d6a6" stop-opacity=".2"/>
+                <stop offset="1" stop-color="#72d6a6" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path class="os-area" d="M0 132 C42 118 67 125 105 96 S165 54 204 79 S272 130 318 91 S389 42 432 62 S492 107 532 76 S590 38 640 51 L640 170 L0 170 Z"/>
+            <path class="os-line" d="M0 132 C42 118 67 125 105 96 S165 54 204 79 S272 130 318 91 S389 42 432 62 S492 107 532 76 S590 38 640 51"/>
+            <circle cx="640" cy="51" r="5"/>
+          </svg>
+        </div>
+        <div class="os-range-stats">
+          <div><span>Önceki</span><b data-lock="bistPrevious" data-live-symbol="XU100" data-live-field="previous"></b></div>
+          <div><span>Gün içi düşük</span><b data-lock="bistLow" data-live-symbol="XU100" data-live-field="low"></b></div>
+          <div><span>Gün içi yüksek</span><b data-lock="bistHigh" data-live-symbol="XU100" data-live-field="high"></b></div>
+        </div>
+      </section>
+
+      <aside class="os-signal-panel" aria-label="Değerleme sinyalleri">
+        <div class="os-panel-head">
+          <div><span>Karar Omurgası</span><small>Hedef potansiyeline göre</small></div>
+          <b>05</b>
+        </div>
+        <div id="signal-ladder" class="os-signal-ladder"></div>
+        <a class="os-panel-link" href="report.html#valuation">Tüm değerlemeleri incele <span aria-hidden="true">↗</span></a>
+      </aside>
+    </div>
+    <div class="container os-tape-shell" aria-label="Piyasa göstergeleri">
+      <div class="os-tape-intro"><span>MARKET TAPE</span><small>04.09 kapanış</small></div>
+      <div id="market-tape" class="os-market-tape"></div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="os-story" id="signal-to-decision" aria-labelledby="story-title">
+      <div class="container">
+        <div class="section-head os-story-heading">
+          <div>
+            <p class="section-kicker">Araştırmanın dört kontrol noktası</p>
+            <h2 class="section-title" id="story-title">Sinyalden Karara</h2>
+          </div>
+          <p class="section-sub">Bir fiyat tek başına karar değildir. GARAN örneğinde kaynaktan model portföye uzanan araştırma sürecini izleyin.</p>
+        </div>
+        <div class="os-story-layout">
+          <div class="os-story-board" aria-hidden="true" hidden>
+            <div class="os-panel-label"><span>GARAN / ARAŞTIRMA DOSYASI</span><b data-story-counter>01 / 04</b></div>
+            <ol class="os-story-track">
+              <li>Piyasa</li><li>Değerleme</li><li>Risk</li><li>Portföy</li>
+            </ol>
+            <div class="os-story-layer" data-story-layer></div>
+            <p class="os-story-board-note">Kapanış ve rapor snapshot’ı · Canlı akıştan bağımsız araştırma örneği</p>
+          </div>
+          <div class="os-story-steps">
+            <article class="os-story-step" id="story-signal" data-story-step>
+              <div class="os-story-copy">
+                <p class="section-kicker">01 / Gözlem</p>
+                <h3>Piyasa sinyali</h3>
+                <p class="os-story-thesis">Önce fiyatın zamanını ve kaynağını doğrula.</p>
+                <p>GARAN kapanışını BIST 100 bağlamıyla birlikte okuyun. Günlük değişim araştırmanın başlangıcıdır; tek başına alım gerekçesi oluşturmaz.</p>
+                <a class="text-link" href="live.html">Piyasa bağlamını incele →</a>
+              </div>
+              <div class="os-story-evidence" data-story-evidence>
+                <p class="os-story-caption">GARAN · Kapanış snapshot’ı</p>
+                <strong class="os-story-number" data-story-value="price">131,40 TL</strong>
+                <dl class="os-story-facts">
+                  <div><dt>Günlük değişim</dt><dd data-story-value="change">%0,00</dd></div>
+                  <div><dt>BIST 100</dt><dd data-story-value="index">14.012,42</dd></div>
+                  <div><dt>Endeks değişimi</dt><dd data-story-value="indexChange">+%0,57</dd></div>
+                </dl>
+                <p class="os-story-date" data-story-value="marketDate">04 Eylül 2026 · 18:30 TSİ</p>
+                <p class="os-story-source">Kaynak: <span data-story-value="marketSource">Bulls Yatırım hisse analiz ekranı</span> · <span data-story-value="indexSource">Bloomberg HT gün sonu özeti</span></p>
+              </div>
+            </article>
+            <article class="os-story-step" id="story-valuation" data-story-step>
+              <div class="os-story-copy">
+                <p class="section-kicker">02 / Değer</p>
+                <h3>Değerleme</h3>
+                <p class="os-story-thesis">Fiyat ile kurum hedefi arasındaki mesafeyi ölç.</p>
+                <p>Hedef potansiyelini yöntem ve çarpanlarla birlikte değerlendirin. Kurum hedefi bir tahmindir; gerçekleşmiş getiri veya getiri garantisi değildir.</p>
+                <a class="text-link" href="report.html#valuation">Değerleme tablosunu aç →</a>
+              </div>
+              <div class="os-story-evidence" data-story-evidence>
+                <p class="os-story-caption">GARAN · Hedef potansiyeli</p>
+                <strong class="os-story-number" data-story-value="upside">+39,3%</strong>
+                <div class="os-story-comparison">
+                  <div><span>Kapanış</span><b data-story-value="price">131,40 TL</b><i aria-hidden="true" data-story-price-bar style="--story-fill:71.81%"></i></div>
+                  <div><span>Kurum hedefi</span><b data-story-value="target">182,99 TL</b><i aria-hidden="true" style="--story-fill:100%"></i></div>
+                </div>
+                <p class="os-story-method" data-story-value="method">PD/DD + ROE + NIM</p>
+                <p data-story-value="multiples">F/K 4,57x · PD/DD 1,13x</p>
+                <p class="os-story-date" data-story-value="reportDate">04 Eylül 2026 · rapor snapshot’ı</p>
+                <p class="os-story-source">Kaynak: <span data-story-value="valuationSource">Bulls kapanış + Şeker Yatırım hedef</span></p>
+              </div>
+            </article>
+            <article class="os-story-step" id="story-risk" data-story-step>
+              <div class="os-story-copy">
+                <p class="section-kicker">03 / Sınır</p>
+                <h3>Risk analizi</h3>
+                <p class="os-story-thesis">Potansiyeli, taşıyabileceğin riskle birlikte oku.</p>
+                <p data-story-value="risks">Net faiz marjı, regülasyon, kredi kalitesi, kur ve sermaye yeterliliği baskısı.</p>
+                <p>Banka yoğunluğu portföy düzeyinde izlenir. Korelasyon matrisi, tarihsel seriyle hesaplanana kadar model varsayımıdır.</p>
+                <a class="text-link" href="portfolio.html#correlation">Risk ve korelasyonu incele →</a>
+              </div>
+              <div class="os-story-evidence" data-story-evidence>
+                <p class="os-story-caption">Model portföy · Banka yoğunluğu</p>
+                <strong class="os-story-number" data-story-value="bankWeight">%24</strong>
+                <div class="os-story-risk-scale" aria-hidden="true"><i data-story-risk-bar style="--story-fill:24%"></i></div>
+                <p class="os-story-scale-label">Toplam model portföy içindeki pay · 0–100%</p>
+                <dl class="os-story-facts">
+                  <div><dt>Kontrol durumu</dt><dd data-story-value="bankStatus">Kontrollü</dd></div>
+                  <div><dt>Azaltım kuralı</dt><dd data-story-value="bankRule">%28 üstü azaltım kuralı</dd></div>
+                  <div><dt>GARAN risk sınıfı</dt><dd data-story-value="risk">Orta</dd></div>
+                </dl>
+                <p class="os-story-date" data-story-value="reportDate">04 Eylül 2026 · rapor snapshot’ı</p>
+                <p class="os-story-source">Kaynak: Araştırma modeli · Risk bütçesi ve izleme kuralları</p>
+              </div>
+            </article>
+            <article class="os-story-step" id="story-decision" data-story-step>
+              <div class="os-story-copy">
+                <p class="section-kicker">04 / Uygulama çerçevesi</p>
+                <h3>Portföy kararı</h3>
+                <p class="os-story-thesis">Tezi, rolü ve ağırlığı aynı kararda birleştir.</p>
+                <p>Modelde GARAN için tanımlı rol ve ağırlık, araştırmanın portföy karşılığını gösterir. Karar öncesinde güncel bilanço, fiyat ve risk koşulları yeniden kontrol edilir.</p>
+                <a class="text-link" href="portfolio.html">Model portföyü incele →</a>
+              </div>
+              <div class="os-story-evidence" data-story-evidence>
+                <p class="os-story-caption">GARAN · Model ağırlığı</p>
+                <strong class="os-story-number" data-story-value="weight">%8</strong>
+                <p class="os-story-decision" data-story-value="decision">Araştır / Kademe</p>
+                <dl class="os-story-facts">
+                  <div><dt>Portföy rolü</dt><dd data-story-value="role">Ana banka pozisyonu</dd></div>
+                  <div><dt>Model tutarı</dt><dd data-story-value="amount">8.000 TL</dd></div>
+                  <div><dt>Toplam model</dt><dd data-story-value="capital">100.000 TL</dd></div>
+                </dl>
+                <p class="os-story-date" data-story-value="reportDate">04 Eylül 2026 · rapor snapshot’ı</p>
+                <p class="os-story-source">Kaynak: Araştırma modeli · Bilgilendirme amaçlıdır; yatırım tavsiyesi değildir.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <p class="os-story-footnote">Bu anlatım tarihli araştırma snapshot’ını kullanır. Canlı fiyatlar piyasa ekranından, kaynak kayıtları <a class="text-link" href="methodology.html">metodoloji sayfasından</a> ayrıca izlenir.</p>
+      </div>
+    </section>
+    <section class="os-intelligence-section" aria-labelledby="intelligence-title">
+      <div class="container os-intelligence-grid">
+        <div class="os-heatmap-panel">
+          <div class="section-head compact-head">
+            <div>
+              <p class="section-kicker">Model Evreni / Günlük Nabız</p>
+              <h2 class="section-title" id="intelligence-title">Hareketi tabloya bakmadan okuyun.</h2>
+            </div>
+            <div class="os-heat-legend"><span class="down">Negatif</span><span class="flat">Yatay</span><span class="up">Pozitif</span></div>
+          </div>
+          <div id="market-heatmap" class="os-market-heatmap"></div>
+        </div>
+
+        <div class="os-decision-axis" aria-label="Karar araştırma akışı">
+          <div class="os-panel-label"><span>KARAR AKIŞI</span><b>4 KATMAN</b></div>
+          <ol>
+            <li class="is-complete"><span>01</span><div><b>Fiyatı doğrula</b><small>4 Eylül kapanış seti</small></div></li>
+            <li class="is-complete"><span>02</span><div><b>Değerlemeyi ölç</b><small>Hedef ve çarpan ayrımı</small></div></li>
+            <li><span>03</span><div><b>Riski bütçele</b><small>Ağırlık ve korelasyon</small></div></li>
+            <li><span>04</span><div><b>Tezi izle</b><small>KAP ve bilanço teyidi</small></div></li>
+          </ol>
+          <a class="btn ghost" href="methodology.html">Metodoloji protokolü</a>
+        </div>
+
+        <aside class="os-provenance-panel" aria-label="Veri tazelik özeti">
+          <div class="os-freshness-orbit" aria-hidden="true"><span>03</span><i></i></div>
+          <div>
+            <p class="section-kicker">Veri Nabzı</p>
+            <h2>Üç ayrı zaman katmanı, tek ekranda.</h2>
+          </div>
+          <dl>
+            <div><dt>Fiyat seti</dt><dd><b>04 Eyl</b><span>Kapanış</span></dd></div>
+            <div><dt>Hedef / çarpan</dt><dd><b>04 Eyl</b><span>Kurum tablosu</span></dd></div>
+            <div><dt>Makro beklenti</dt><dd><b>14 Ağu</b><span>TCMB PKA</span></dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="band decision-workspace">
+      <div class="container decision-layout">
+        <div class="workspace-primary">
+          <div class="section-head compact-head">
+            <div>
+              <p class="section-kicker">Değerleme Snapshot’ı</p>
+              <h2 class="section-title">Potansiyel, yöntem ve veri tarihi birlikte.</h2>
+              <p class="section-sub"><span data-lock="dataDate"></span> tarihli rapor referansıdır; canlı fiyat yalnızca lisanslı API bağlıysa hücrelere yansır.</p>
+            </div>
+            <a class="text-link" href="report.html#valuation">Tüm değerlemeler →</a>
+          </div>
+          <div class="valuation-grid" id="valuation-cards"></div>
+        </div>
+        <aside class="workspace-aside" aria-label="Karar kontrol listesi">
+          <div class="aside-head"><div><small>KARAR KUYRUĞU</small><h2>Bugün ne kontrol edilmeli?</h2></div><span class="count-badge">4 kontrol</span></div>
+          <div class="feed-list" id="analysis-feed"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Araştırma Evreni</p>
+            <h2 class="section-title">Rolü, riski ve izleme kuralı tanımlı varlıklar.</h2>
+            <p class="section-sub">Model skoru alım emri değildir. Her satır, daha derin araştırmaya giden bir ön eleme ve takip çerçevesidir.</p>
+          </div>
+          <a class="btn" href="report.html#universe">Tam araştırma raporu</a>
+        </div>
+        <div class="filters" aria-label="Sektör filtresi">
+          <button class="btn small filter active" data-filter="all">Tümü</button>
+          <button class="btn small filter" data-filter="Bankacılık">Bankacılık</button>
+          <button class="btn small filter" data-filter="Perakende">Perakende</button>
+          <button class="btn small filter" data-filter="Savunma">Savunma</button>
+        </div>
+        <div class="table-wrap data-table-shell" data-table-title="Hisse araştırma evreni">
+          <table>
+            <thead><tr><th>Sıra</th><th>Kod</th><th>Tema</th><th>Risk</th><th>Skor</th><th>Portföy rolü</th><th>Karar çerçevesi</th></tr></thead>
+            <tbody id="stock-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-band portfolio-preview">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Model Portföy</p>
+            <h2 class="section-title">BIST betası, likidite ve koruma katmanları.</h2>
+            <p class="section-sub">Ağırlıklar tek yönlü piyasa görüşü yerine tema çeşitlendirmesi ve risk bütçesi üzerinden okunur.</p>
+          </div>
+          <a class="btn ghost" href="portfolio.html">Portföy simülatörünü aç</a>
+        </div>
+        <div class="portfolio-dashboard">
+          <div class="allocation-panel">
+            <div class="panel-title"><h3>Varlık dağılımı</h3><span>100.000 TL model</span></div>
+            <div id="portfolio-bars" class="bars"></div>
+          </div>
+          <div class="allocation-panel">
+            <div class="panel-title"><h3>Tema dağılımı</h3><span>Risk bütçesi</span></div>
+            <div id="theme-bars" class="bars"></div>
+          </div>
+          <div class="risk-panel">
+            <div class="panel-title"><h3>Risk limitleri</h3><a href="portfolio.html#correlation">Matris →</a></div>
+            <div class="risk-grid compact-risk" id="risk-indicators"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head compact-head">
+          <div>
+            <p class="section-kicker">Araştırma Sistemi</p>
+            <h2 class="section-title">Bir rapordan daha fazlası: tekrar edilebilir süreç.</h2>
+            <p class="section-sub">Veri kaynağı, değerleme, risk ve karar notu aynı araştırma zincirinin ayrı kontrol noktalarıdır.</p>
+          </div>
+        </div>
+        <div class="module-grid" id="platform-modules"></div>
+      </div>
+    </section>
+
+    <section class="credibility-band">
+      <div class="container credibility-layout">
+        <div>
+          <p class="section-kicker">Veri Dürüstlüğü</p>
+          <h2 class="section-title">Canlı görünen her sayı canlı değildir.</h2>
+          <p class="section-sub">Platform; rapor snapshot’ı, güncel makro veri, TradingView widget’ı ve lisanslı API akışını açık etiketlerle birbirinden ayırır.</p>
+        </div>
+        <div class="credibility-points">
+          <div><b>A1–A2</b><span>Resmî ve birincil kaynak önceliği</span></div>
+          <div><b>Timestamp</b><span>Her veri katmanı için ayrı zaman damgası</span></div>
+          <div><b>Model</b><span>Varsayım ve tarihsel veri ayrımı</span></div>
+        </div>
+        <a class="btn primary" href="methodology.html">Metodolojiyi incele</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><b>Efe Şengül Research</b><div class="disclaimer">Bilgilendirme ve karar destek amaçlıdır; yatırım tavsiyesi değildir.</div></div>
+      <div class="footer-meta"><span>Rapor snapshot’ı: <b data-lock="dataDate"></b></span><span>Platform: <b data-clock="date-time"></b></span></div>
+    </div>
+  </footer>
+
+</body>
+</html>
