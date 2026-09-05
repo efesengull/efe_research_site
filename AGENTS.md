@@ -1,3 +1,5 @@
+Her yeni görevde önce repo kökündeki `PROJECT_STATUS.md` dosyasını oku; güncel fazı ve tamamlanan işleri dikkate al.
+
 # Repository Guidelines
 
 ## Proje Yapısı ve Mimari
