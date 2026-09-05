@@ -33,13 +33,42 @@ Hero alanlarında optimize WebM video, özel 3D poster ve build sistemi gerektir
 
 Faz 1 ortak tasarım kararları `assets/css/styles.css` içindeki semantik token'larda tutulur. `research-os.css`, eski `--os-*` isimlerini bu token'lara bağlar ve sayfa kompozisyonunu yönetir. Yeni bileşenlerde aynı renk, tipografi, boşluk, radius ve hareket token'larını kullanın; ayrı bir tema paleti oluşturmayın. Kullanım kuralları ve doğrulama sonuçları: [Faz 1 tasarım sistemi](docs/phase-1.md).
 
-Beş sayfanın ortak asset sürümü `3.4.0`'dır. Bu sürüm önbellek içindir; finansal snapshot'ın `DATA_LOCK.version` değeriyle aynı olmak zorunda değildir.
+Beş sayfanın ortak asset sürümü `3.5.0`'dır. Bu sürüm önbellek içindir; finansal snapshot'ın `DATA_LOCK.version` değeriyle aynı olmak zorunda değildir.
 
 Faz 2, ana sayfadaki **Sinyalden Karara** bölümüdür. GARAN örneğinde piyasa sinyali, değerleme, risk analizi ve portföy kararı aynı tarihli araştırma setinden okunur. Yeterli ekran alanında doğal kaydırmaya eşlik eden sabit panel kullanılır; mobilde, kısa ekranda ve reduced-motion altında dört aşama sıralı görünür. JavaScript veya observer desteği olmadan da anlatım ve veriler erişilebilirdir. Kararlar ve kanıtlar: [Faz 2 raporu](docs/phase-2.md).
 
 Faz 3; tek seferlik hero/bölüm girişleri, kısa grafik vurguları, klavye/dokunma tepkileri ve bölüm ilerleme göstergesidir. Hero'daki kontrol video ve Canvas hareketini durdurur. Sayfa geçişleri destekleyen tarayıcılarda kısa bir solma kullanır; reduced-motion altında kapalıdır. Ortak scriptler aynı sırayla head içinde `defer` çalışır; `platform-ui.js` üzerindeki `blocking="render"`, geçiş dinleyicisini ilk çizimden önce hazırlar. Kararlar ve kanıtlar: [Faz 3 raporu](docs/phase-3.md).
 
 Faz 4 değerlendirmesinde WebGL eklenmedi. Mevcut Canvas 2D perspektifi, CSS anlatım katmanları ve SVG mevcut ihtiyacı karşılıyor. Canvas/video/poster arızası, DPR sınırı, mobil sadeleşme ve statik alternatifler doğrulandı; uygulama dosyaları ve `3.4.0` asset sürümü korundu. Karar, yerel ölçümler ve sınırlar: [Faz 4 raporu](docs/phase-4.md).
+
+Faz 5, dekoratif Canvas çizimini en fazla 30/s ile sınırlar; hareket hızı geçen zamandan hesaplanır. Mobil/kısa sahnelerde ve düşük kapasite sinyali olan cihazlarda DPR üst sınırı 1,25, diğerlerinde 1,8'dir. Video görünürlük kararı verilmeden ve veri tasarrufu açıkken başlamaz. TradingView scriptleri mevcut yapılandırmalarıyla kutuya 160 px yaklaşınca bir kez yüklenir; observer desteği yoksa doğrudan yüklenir. Ölçümler ve sınırlar: [Faz 5 raporu](docs/phase-5.md).
+
+## Faz 5 performans doğrulaması
+
+```powershell
+node tests/performance.test.js
+$env:TEST_OUTPUT_DIR='docs/phase-5/regression'
+node tests/research-story.test.js
+$env:TEST_OUTPUT_DIR='docs/phase-5/motion'
+node tests/motion-system.test.js
+$env:TEST_OUTPUT_DIR='docs/phase-5/depth'
+node tests/depth-background.test.js
+Remove-Item Env:TEST_OUTPUT_DIR
+```
+
+Performans testi, her sayfa için masaüstü/mobilde üçer yeni tarayıcı oturumu açar; 4× CPU yavaşlatması, DPR 3 ve yerel ağ kullanır. LCP, başlangıç CLS, uzun görevler, Canvas çizim/işlem süresi, ana iş parçacığı süresi ve üçüncü taraf isteklerini kaydeder. Harici ağ engellidir; widget yaşam döngüsü açıkça test fixture'ı olan bir script ile kontrol edilir. `PERF_FUNCTIONAL_ONLY=1` yalnızca davranış kontrollerini çalıştırır. Bunlar saha Core Web Vitals, GPU veya pil ölçümü değildir.
+
+Başlangıç kaydı `a3135e3` commit'inde, uygulama değişmeden `PERF_STAGE=before` ile alındı. Güncel kodda `before` etiketini kullanmak eski sürümü kendiliğinden yüklemez. Önce/sonra kayıtlarını ezmeden yeni ölçüm almak için farklı `TEST_OUTPUT_DIR` kullanın.
+
+Gerçek TradingView ağına izin veren ayrı tanı:
+
+```powershell
+$env:REAL_THIRD_PARTY='1'
+node tests/third-party-performance.test.js
+Remove-Item Env:REAL_THIRD_PARTY
+```
+
+Bu betik başlangıç dosyalarını Git'teki `a3135e3` üzerinden salt okunur sunar; checkout'u değiştirmez. Her görünüm/sürüm için tek ağ örneğidir; sağlayıcı erişimi ve değişken ağ koşulları nedeniyle otomatik başarı veya zaman kazancı iddiası taşımaz. Varsayılan çıktı `docs/phase-5/third-party/`; ilk engelli deneme burada, ağ erişimli tamamlanan ölçüm `TEST_OUTPUT_DIR` kullanılarak `docs/phase-5/third-party-network/` altında korunmuştur.
 
 ## Faz 2 regresyonu ve Faz 3 doğrulaması
 

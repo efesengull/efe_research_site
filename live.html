@@ -6,14 +6,14 @@
   <meta name="theme-color" content="#080b0d">
   <title>Canlı Piyasa | Efe Şengül Research</title>
   <meta name="description" content="BIST 100, ana hisseler, USD/TRY, altın ve global teknoloji teması için TradingView widget destekli canlı piyasa ekranı.">
-  <link rel="stylesheet" href="assets/css/styles.css?v=3.4.0">
-  <link rel="stylesheet" href="assets/css/research-os.css?v=3.4.0">
+  <link rel="stylesheet" href="assets/css/styles.css?v=3.5.0">
+  <link rel="stylesheet" href="assets/css/research-os.css?v=3.5.0">
   <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
-  <script defer src="assets/js/data.js?v=3.4.0"></script>
-  <script defer src="assets/js/finance-3d-background.js?v=3.4.0"></script>
-  <script defer src="assets/js/app.js?v=3.4.0"></script>
-  <script defer blocking="render" src="assets/js/platform-ui.js?v=3.4.0"></script>
-  <script defer src="assets/js/live-adapter.js?v=3.4.0"></script>
+  <script defer src="assets/js/data.js?v=3.5.0"></script>
+  <script defer src="assets/js/finance-3d-background.js?v=3.5.0"></script>
+  <script defer src="assets/js/app.js?v=3.5.0"></script>
+  <script defer blocking="render" src="assets/js/platform-ui.js?v=3.5.0"></script>
+  <script defer src="assets/js/live-adapter.js?v=3.5.0"></script>
 </head>
 <body data-page="live" data-scene="flow">
   <div class="market-backdrop" aria-hidden="true"></div>
@@ -76,7 +76,7 @@
         <div class="live-box compact">
           <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            <script type="application/json" data-widget-src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js">
             {"symbols":[{"proName":"BIST:XU100","title":"BIST 100"},{"proName":"BIST:GARAN","title":"GARAN"},{"proName":"BIST:YKBNK","title":"YKBNK"},{"proName":"BIST:AKBNK","title":"AKBNK"},{"proName":"BIST:TUPRS","title":"TUPRS"},{"proName":"BIST:ASELS","title":"ASELS"},{"proName":"BIST:BIMAS","title":"BIMAS"},{"proName":"BIST:THYAO","title":"THYAO"},{"proName":"FX_IDC:USDTRY","title":"USD/TRY"},{"proName":"OANDA:XAUUSD","title":"Altın"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"tr"}
             </script>
           </div>
@@ -98,7 +98,7 @@
           <div class="live-box">
             <div class="tradingview-widget-container" style="height:100%;width:100%">
               <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+              <script type="application/json" data-widget-src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js">
               {"colorTheme":"dark","dateRange":"12M","showChart":true,"locale":"tr","largeChartUrl":"","isTransparent":true,"showSymbolLogo":true,"showFloatingTooltip":false,"width":"100%","height":"100%","plotLineColorGrowing":"rgba(53, 196, 159, 1)","plotLineColorFalling":"rgba(239, 102, 119, 1)","gridLineColor":"rgba(255, 255, 255, 0.06)","scaleFontColor":"rgba(203, 213, 225, 1)","belowLineFillColorGrowing":"rgba(53, 196, 159, 0.14)","belowLineFillColorFalling":"rgba(239, 102, 119, 0.12)","belowLineFillColorGrowingBottom":"rgba(53, 196, 159, 0)","belowLineFillColorFallingBottom":"rgba(239, 102, 119, 0)","symbolActiveColor":"rgba(53, 196, 159, 0.16)","tabs":[{"title":"BIST Çekirdek","symbols":[{"s":"BIST:XU100","d":"BIST 100"},{"s":"BIST:GARAN","d":"GARAN"},{"s":"BIST:YKBNK","d":"YKBNK"},{"s":"BIST:AKBNK","d":"AKBNK"},{"s":"BIST:TUPRS","d":"TUPRS"},{"s":"BIST:ASELS","d":"ASELS"},{"s":"BIST:BIMAS","d":"BIMAS"},{"s":"BIST:TCELL","d":"TCELL"},{"s":"BIST:THYAO","d":"THYAO"}]},{"title":"Makro","symbols":[{"s":"FX_IDC:USDTRY","d":"USD/TRY"},{"s":"OANDA:XAUUSD","d":"XAU/USD"},{"s":"TVC:DXY","d":"DXY"},{"s":"NASDAQ:NDX","d":"Nasdaq 100"}]}]}
               </script>
             </div>
@@ -116,7 +116,7 @@
           <div class="live-box">
             <div class="tradingview-widget-container" style="height:100%;width:100%">
               <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+              <script type="application/json" data-widget-src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js">
               {"symbols":[["BIST 100","BIST:XU100|1D"],["Garanti","BIST:GARAN|1D"],["Tüpraş","BIST:TUPRS|1D"],["Aselsan","BIST:ASELS|1D"]],"chartOnly":false,"width":"100%","height":"100%","locale":"tr","colorTheme":"dark","autosize":true,"showVolume":false,"showMA":false,"hideDateRanges":false,"hideMarketStatus":false,"hideSymbolLogo":false,"scalePosition":"right","scaleMode":"Normal","fontFamily":"Inter, sans-serif","fontSize":"10","noTimeScale":false,"valuesTracking":"1","changeMode":"price-and-percent","chartType":"area","lineWidth":2,"lineType":0,"dateRanges":["1d|1","1m|30","3m|60","12m|1D","60m|1W","all|1M"]}
               </script>
             </div>

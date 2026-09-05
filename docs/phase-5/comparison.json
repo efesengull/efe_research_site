@@ -1,0 +1,362 @@
+[
+  {
+    "page": "index",
+    "mobile": false,
+    "drawsPerSecond": [
+      193.808,
+      28.63
+    ],
+    "canvasMsPerSecond": [
+      621.672,
+      86.835
+    ],
+    "taskMsPerSecond": [
+      892.878,
+      241.795
+    ],
+    "layoutMsPerSecond": [
+      0,
+      0
+    ],
+    "canvasPixels": [
+      2788786,
+      2788786
+    ],
+    "lcp": [
+      708,
+      632
+    ],
+    "cls": [
+      0.025,
+      0.025
+    ],
+    "thirdPartyRequests": [
+      0,
+      0
+    ]
+  },
+  {
+    "page": "live",
+    "mobile": false,
+    "drawsPerSecond": [
+      197.503,
+      28.536
+    ],
+    "canvasMsPerSecond": [
+      603.075,
+      88.695
+    ],
+    "taskMsPerSecond": [
+      865.302,
+      244.77
+    ],
+    "layoutMsPerSecond": [
+      0,
+      0
+    ],
+    "canvasPixels": [
+      2315962,
+      2315962
+    ],
+    "lcp": [
+      532,
+      528
+    ],
+    "cls": [
+      0.015,
+      0.015
+    ],
+    "thirdPartyRequests": [
+      3,
+      0
+    ]
+  },
+  {
+    "page": "report",
+    "mobile": false,
+    "drawsPerSecond": [
+      196.746,
+      28.571
+    ],
+    "canvasMsPerSecond": [
+      628.658,
+      89.387
+    ],
+    "taskMsPerSecond": [
+      897.911,
+      235.2
+    ],
+    "layoutMsPerSecond": [
+      0,
+      0
+    ],
+    "canvasPixels": [
+      2315962,
+      2315962
+    ],
+    "lcp": [
+      528,
+      556
+    ],
+    "cls": [
+      0.021,
+      0.021
+    ],
+    "thirdPartyRequests": [
+      0,
+      0
+    ]
+  },
+  {
+    "page": "portfolio",
+    "mobile": false,
+    "drawsPerSecond": [
+      199.094,
+      28.494
+    ],
+    "canvasMsPerSecond": [
+      507.288,
+      73.441
+    ],
+    "taskMsPerSecond": [
+      760.687,
+      214.856
+    ],
+    "layoutMsPerSecond": [
+      0,
+      0
+    ],
+    "canvasPixels": [
+      2315962,
+      2315962
+    ],
+    "lcp": [
+      488,
+      460
+    ],
+    "cls": [
+      0.015,
+      0.015
+    ],
+    "thirdPartyRequests": [
+      0,
+      0
+    ]
+  },
+  {
+    "page": "methodology",
+    "mobile": false,
+    "drawsPerSecond": [
+      199.494,
+      28.381
+    ],
+    "canvasMsPerSecond": [
+      528.923,
+      77.373
+    ],
+    "taskMsPerSecond": [
+      768.408,
+      219.896
+    ],
+    "layoutMsPerSecond": [
+      0,
+      0
+    ],
+    "canvasPixels": [
+      2206512,
+      2206512
+    ],
+    "lcp": [
+      472,
+      444
+    ],
+    "cls": [
+      0.016,
+      0.016
+    ],
+    "thirdPartyRequests": [
+      0,
+      0
+    ]
+  },
+  {
+    "page": "index",
+    "mobile": true,
+    "drawsPerSecond": [
+      200,
+      28.434
+    ],
+    "canvasMsPerSecond": [
+      324.311,
+      62.083
+    ],
+    "taskMsPerSecond": [
+      582.765,
+      253.052
+    ],
+    "layoutMsPerSecond": [
+      0,
+      0
+    ],
+    "canvasPixels": [
+      1658124,
+      800320
+    ],
+    "lcp": [
+      600,
+      624
+    ],
+    "cls": [
+      0,
+      0
+    ],
+    "thirdPartyRequests": [
+      0,
+      0
+    ]
+  },
+  {
+    "page": "live",
+    "mobile": true,
+    "drawsPerSecond": [
+      200.037,
+      28.506
+    ],
+    "canvasMsPerSecond": [
+      265.702,
+      45.795
+    ],
+    "taskMsPerSecond": [
+      458.109,
+      198.176
+    ],
+    "layoutMsPerSecond": [
+      0,
+      0
+    ],
+    "canvasPixels": [
+      824148,
+      397720
+    ],
+    "lcp": [
+      404,
+      396
+    ],
+    "cls": [
+      0,
+      0
+    ],
+    "thirdPartyRequests": [
+      3,
+      0
+    ]
+  },
+  {
+    "page": "report",
+    "mobile": true,
+    "drawsPerSecond": [
+      199.925,
+      28.531
+    ],
+    "canvasMsPerSecond": [
+      349.487,
+      77.777
+    ],
+    "taskMsPerSecond": [
+      582.408,
+      300.036
+    ],
+    "layoutMsPerSecond": [
+      0,
+      0
+    ],
+    "canvasPixels": [
+      793260,
+      383080
+    ],
+    "lcp": [
+      508,
+      500
+    ],
+    "cls": [
+      0,
+      0
+    ],
+    "thirdPartyRequests": [
+      0,
+      0
+    ]
+  },
+  {
+    "page": "portfolio",
+    "mobile": true,
+    "drawsPerSecond": [
+      200.025,
+      28.589
+    ],
+    "canvasMsPerSecond": [
+      258.422,
+      53.435
+    ],
+    "taskMsPerSecond": [
+      458.222,
+      233.377
+    ],
+    "layoutMsPerSecond": [
+      0,
+      0
+    ],
+    "canvasPixels": [
+      819936,
+      395768
+    ],
+    "lcp": [
+      484,
+      492
+    ],
+    "cls": [
+      0,
+      0
+    ],
+    "thirdPartyRequests": [
+      0,
+      0
+    ]
+  },
+  {
+    "page": "methodology",
+    "mobile": true,
+    "drawsPerSecond": [
+      199.778,
+      28.573
+    ],
+    "canvasMsPerSecond": [
+      277.281,
+      46.681
+    ],
+    "taskMsPerSecond": [
+      484.303,
+      221.164
+    ],
+    "layoutMsPerSecond": [
+      0,
+      0
+    ],
+    "canvasPixels": [
+      791154,
+      382104
+    ],
+    "lcp": [
+      508,
+      476
+    ],
+    "cls": [
+      0,
+      0
+    ],
+    "thirdPartyRequests": [
+      0,
+      0
+    ]
+  }
+]

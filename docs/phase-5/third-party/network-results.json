@@ -1,0 +1,243 @@
+{
+  "baseline": "a3135e3",
+  "browser": "152.0.4191.66",
+  "method": "Real provider requests allowed; local static host; fresh context; 10s initial + 4s at each widget; one run per stage/viewport, unthrottled. Completed response body bytes only; ongoing streams excluded. Network variability prevents causal timing claims; iframe presence does not establish quote correctness.",
+  "samples": [
+    {
+      "stage": "before",
+      "mobile": false,
+      "initial": {
+        "requests": 3,
+        "frames": 0,
+        "taskMs": 1827.0720000000001
+      },
+      "widgets": [
+        {
+          "loaded": false,
+          "frameSrc": "",
+          "height": 104
+        },
+        {
+          "loaded": false,
+          "frameSrc": "",
+          "height": 440
+        },
+        {
+          "loaded": false,
+          "frameSrc": "",
+          "height": 440
+        }
+      ],
+      "requests": [
+        {
+          "phase": "initial",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+        },
+        {
+          "phase": "initial",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
+        },
+        {
+          "phase": "initial",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js"
+        }
+      ],
+      "responses": [],
+      "failures": [
+        {
+          "phase": "initial",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "phase": "initial",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "phase": "initial",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage": "after",
+      "mobile": false,
+      "initial": {
+        "requests": 0,
+        "frames": 0,
+        "taskMs": 601.8299999999999
+      },
+      "widgets": [
+        {
+          "loaded": false,
+          "frameSrc": "",
+          "height": 104
+        },
+        {
+          "loaded": false,
+          "frameSrc": "",
+          "height": 440
+        },
+        {
+          "loaded": false,
+          "frameSrc": "",
+          "height": 440
+        }
+      ],
+      "requests": [
+        {
+          "phase": "scrolled",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+        },
+        {
+          "phase": "scrolled",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
+        },
+        {
+          "phase": "scrolled",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js"
+        }
+      ],
+      "responses": [],
+      "failures": [
+        {
+          "phase": "scrolled",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "phase": "scrolled",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "phase": "scrolled",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage": "before",
+      "mobile": true,
+      "initial": {
+        "requests": 3,
+        "frames": 0,
+        "taskMs": 1079.5539999999999
+      },
+      "widgets": [
+        {
+          "loaded": false,
+          "frameSrc": "",
+          "height": 104
+        },
+        {
+          "loaded": false,
+          "frameSrc": "",
+          "height": 440
+        },
+        {
+          "loaded": false,
+          "frameSrc": "",
+          "height": 440
+        }
+      ],
+      "requests": [
+        {
+          "phase": "initial",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+        },
+        {
+          "phase": "initial",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
+        },
+        {
+          "phase": "initial",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js"
+        }
+      ],
+      "responses": [],
+      "failures": [
+        {
+          "phase": "initial",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "phase": "initial",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "phase": "initial",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "stage": "after",
+      "mobile": true,
+      "initial": {
+        "requests": 0,
+        "frames": 0,
+        "taskMs": 435.97200000000004
+      },
+      "widgets": [
+        {
+          "loaded": false,
+          "frameSrc": "",
+          "height": 104
+        },
+        {
+          "loaded": false,
+          "frameSrc": "",
+          "height": 440
+        },
+        {
+          "loaded": false,
+          "frameSrc": "",
+          "height": 440
+        }
+      ],
+      "requests": [
+        {
+          "phase": "scrolled",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+        },
+        {
+          "phase": "scrolled",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
+        },
+        {
+          "phase": "scrolled",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js"
+        }
+      ],
+      "responses": [],
+      "failures": [
+        {
+          "phase": "scrolled",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "phase": "scrolled",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        },
+        {
+          "phase": "scrolled",
+          "url": "https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js",
+          "error": "net::ERR_NETWORK_ACCESS_DENIED"
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

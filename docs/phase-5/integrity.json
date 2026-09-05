@@ -1,0 +1,16 @@
+{
+  "baseline": "a3135e3",
+  "unchangedAssets": [
+    "assets/css/research-os.css",
+    "assets/css/styles.css",
+    "assets/img/finance-depth-poster.webp",
+    "assets/img/logo.svg",
+    "assets/js/app.js",
+    "assets/js/data.js",
+    "assets/js/live-adapter.js",
+    "assets/video/market-motion.webm",
+    "downloads/BIST_Kurumsal_Final_Degerleme.docx",
+    "downloads/BIST_Rapor_Efe_AI_Profesyonel_Final.docx"
+  ],
+  "html": "All five pages identical after reverting asset version and the three widget script loading attributes; complete widget JSON, all financial values, links and legal text unchanged."
+}

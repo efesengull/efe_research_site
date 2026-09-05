@@ -337,13 +337,14 @@
   function manageHeroMedia(){
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
     const compact = window.matchMedia('(max-width: 560px), (pointer: coarse)');
+    const connection = navigator.connection;
     const videos = [...document.querySelectorAll('.hero-video')];
     if(!videos.length) return;
-    const visibility = new WeakMap(videos.map(video => [video, true]));
+    const visibility = new WeakMap(videos.map(video => [video, typeof IntersectionObserver === 'undefined']));
 
     function sync(){
       videos.forEach(video => {
-        if(reduced.matches || compact.matches || document.hidden || document.documentElement.hasAttribute('data-motion-paused') || visibility.get(video) === false){
+        if(reduced.matches || compact.matches || connection?.saveData || document.hidden || document.documentElement.hasAttribute('data-motion-paused') || visibility.get(video) === false){
           video.pause();
           if(reduced.matches) video.currentTime = 0;
         }else{
@@ -355,6 +356,7 @@
     window.addEventListener('efe:motion-change', sync);
     if(typeof reduced.addEventListener === 'function') reduced.addEventListener('change', sync);
     if(typeof compact.addEventListener === 'function') compact.addEventListener('change', sync);
+    if(connection?.addEventListener) connection.addEventListener('change', sync);
     if(typeof IntersectionObserver !== 'undefined'){
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => visibility.set(entry.target, entry.isIntersecting));
@@ -363,6 +365,38 @@
       videos.forEach(video => observer.observe(video));
     }
     sync();
+  }
+
+  function initLazyWidgets(){
+    const configs = [...document.querySelectorAll('script[data-widget-src]')];
+    if(!configs.length) return;
+    function load(config){
+      if(!config.isConnected) return;
+      const script = document.createElement('script');
+      script.src = config.dataset.widgetSrc;
+      script.async = true;
+      script.textContent = config.textContent;
+      config.replaceWith(script);
+    }
+    if(typeof IntersectionObserver === 'undefined'){
+      configs.forEach(load);
+      return;
+    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(!entry.isIntersecting || document.hidden) return;
+        entry.target.querySelectorAll('script[data-widget-src]').forEach(load);
+        observer.unobserve(entry.target);
+      });
+    }, {rootMargin: '160px 0px'});
+    const boxes = [...new Set(configs.map(config => config.closest('.live-box')))];
+    boxes.forEach(box => observer.observe(box));
+    document.addEventListener('visibilitychange', () => {
+      if(!document.hidden) boxes.filter(box => box.querySelector('script[data-widget-src]')).forEach(box => {
+        observer.unobserve(box);
+        observer.observe(box);
+      });
+    });
   }
 
   function initPageTabs(){
@@ -634,6 +668,7 @@
     initCapitalSimulator();
     initMotion();
     manageHeroMedia();
+    initLazyWidgets();
     initPageTabs();
     initResearchStory();
   }

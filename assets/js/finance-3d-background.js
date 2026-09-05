@@ -43,6 +43,8 @@
       this.raf = 0;
       this.resizeRaf = 0;
       this.lastTime = 0;
+      this.nextDraw = 0;
+      this.lowPower = Boolean(navigator.connection?.saveData) || navigator.hardwareConcurrency <= 4 || navigator.deviceMemory <= 4;
       this.visible = true;
       this.inViewport = true;
       this.pointer = {x: 0, y: 0, tx: 0, ty: 0};
@@ -97,13 +99,15 @@
       this.heroTop = rect.top + window.scrollY;
       const nextWidth = Math.max(1, Math.round(rect.width));
       const nextHeight = Math.max(1, Math.round(rect.height));
-      const nextDpr = Math.min(window.devicePixelRatio || 1, 1.8);
+      const compact = nextWidth < 760 || nextHeight < 520 || this.lowPower;
+      const nextDpr = Math.min(window.devicePixelRatio || 1, compact ? 1.25 : 1.8);
       const changed = nextWidth !== this.width || nextHeight !== this.height || nextDpr !== this.dpr;
 
       this.width = nextWidth;
       this.height = nextHeight;
       this.dpr = nextDpr;
-      this.compact = this.width < 760 || this.height < 520;
+      this.compact = compact;
+      if(!changed) return;
       this.canvas.width = Math.round(this.width * this.dpr);
       this.canvas.height = Math.round(this.height * this.dpr);
       this.canvas.style.width = this.width + 'px';
@@ -150,6 +154,7 @@
     start(){
       cancelAnimationFrame(this.raf);
       this.lastTime = performance.now();
+      this.nextDraw = this.lastTime;
       if(this.motionPaused()){
         this.draw(0);
         return;
@@ -194,22 +199,27 @@
     }
 
     tick(now){
-      const dt = clamp((now - this.lastTime) / 1000, 0, 0.05);
-      this.lastTime = now;
-      this.update(dt, now / 1000);
-      this.draw(now / 1000);
+      // Slow decorative motion needs at most 30 draws/s, including on 120/144Hz displays.
+      if(now + 0.5 >= this.nextDraw){
+        const dt = clamp((now - this.lastTime) / 1000, 0, 0.05);
+        this.lastTime = now;
+        this.nextDraw = now + 1000 / 30;
+        this.update(dt, now / 1000);
+        this.draw(now / 1000);
+      }
       if(!document.hidden && this.inViewport && !this.motionPaused()){
         this.raf = requestAnimationFrame(this.onTick);
       }
     }
 
     update(dt, time){
-      this.pointer.x = lerp(this.pointer.x, this.pointer.tx, 0.045);
-      this.pointer.y = lerp(this.pointer.y, this.pointer.ty, 0.045);
+      const smoothing = 1 - Math.pow(1 - 0.045, dt * 60);
+      this.pointer.x = lerp(this.pointer.x, this.pointer.tx, smoothing);
+      this.pointer.y = lerp(this.pointer.y, this.pointer.ty, smoothing);
 
       for(const node of this.nodes){
         node.z += node.speed * dt * (this.compact ? 0.45 : 1);
-        node.y += Math.sin(time * 0.55 + node.phase) * 0.0008;
+        node.y += Math.sin(time * 0.55 + node.phase) * 0.048 * dt;
         if(node.z > 1.08){
           node.z = -0.05;
           node.x = (Math.random() - 0.5) * 2.2;
@@ -404,8 +414,9 @@
           const b = projected[j];
           const dx = a.x - b.x;
           const dy = a.y - b.y;
-          const distance = Math.hypot(dx, dy);
-          if(distance < maxDistance){
+          const distanceSquared = dx * dx + dy * dy;
+          if(distanceSquared < maxDistance * maxDistance){
+            const distance = Math.sqrt(distanceSquared);
             const alpha = (1 - distance / maxDistance) * 0.18 * (0.42 + (a.depth + b.depth) * 0.58);
             ctx.strokeStyle = `rgba(111, 185, 213, ${alpha})`;
             ctx.lineWidth = 1;
