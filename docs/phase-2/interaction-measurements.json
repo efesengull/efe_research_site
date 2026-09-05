@@ -1,0 +1,23 @@
+{
+  "keyboard": [
+    {
+      "id": "story-signal",
+      "stage": "1"
+    },
+    {
+      "id": "story-valuation",
+      "stage": "2"
+    },
+    {
+      "id": "story-risk",
+      "stage": "3"
+    },
+    {
+      "id": "story-decision",
+      "stage": "4"
+    }
+  ],
+  "scrollGeometryReads": 0,
+  "idleAtStage3AnimationFrameRequests": 0,
+  "withoutObservers": true
+}
