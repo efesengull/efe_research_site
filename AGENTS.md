@@ -40,3 +40,10 @@ Sahte finansal veri, API anahtarı, vendor parolası veya lisansı belirsiz gör
 ## Commit ve Pull Request Kuralları
 
 Bu checkout'ta Git metadata bulunmadığından geçmişe dayalı bir mesaj standardı çıkarılamaz. `fix: preserve quote fallback state` gibi kısa ve emir kipinde başlıklar kullanın. Pull request'te etkilenen sayfaları, manuel kontrolleri, ilgili issue'yu ve değişen veri kaynak/tarihlerini belirtin; görsel değişikliklere önce/sonra ekran görüntüsü ekleyin.
+
+Faz tamamlama protokolü:
+Her faz tamamlandığında sırayla:
+1. PROJECT_STATUS.md dosyasını güncelle (tamamlanan faz ve yapılan işler).
+2. git add ve git commit işlemlerini otomatik yap (commit mesajı: "Faz X tamamlandı - [kısa özet]").
+3. Commit mesajını ve değişen dosya listesini bana göster.
+4. git push işlemini YAPMA — onay bekle. Ben "pushla" dediğimde push et.
