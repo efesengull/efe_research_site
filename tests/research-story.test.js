@@ -3,7 +3,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const http = require('node:http');
+const {createStaticServer} = require('./helpers');
 const crypto = require('node:crypto');
 const {chromium} = require('playwright');
 const root = path.resolve(__dirname, '..');
@@ -16,17 +16,7 @@ function check(name, condition){
   assert.ok(condition, name);
   results.push(name);
 }
-const types = {'.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.webm': 'video/webm'};
-const server = http.createServer((req, res) => {
-  const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
-  const file = path.resolve(root, '.' + (pathname === '/' ? '/index.html' : pathname));
-  if(!file.startsWith(root + path.sep) || !fs.existsSync(file) || !fs.statSync(file).isFile()){
-    res.writeHead(404).end();
-    return;
-  }
-  res.setHeader('Content-Type', types[path.extname(file)] || 'application/octet-stream');
-  fs.createReadStream(file).pipe(res);
-});
+const server = createStaticServer(root);
 
 async function run(){
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
@@ -166,7 +156,7 @@ async function run(){
         if(url.hash && path.extname(file) === '.html') assert.ok(fs.readFileSync(file, 'utf8').includes(`id="${url.hash.slice(1)}"`), `${name}: ${link}`);
       }
       check(`${name}: local assets, downloads and anchor targets exist`, true);
-      check(`${name}: asset versions consistent`, (await page.locator('script[src], link[rel="stylesheet"]').evaluateAll(elements => elements.map(el => el.getAttribute('src') || el.getAttribute('href')))).filter(url => url.startsWith('assets/')).every(url => url.endsWith('?v=3.6.0')));
+      check(`${name}: asset versions consistent`, (await page.locator('script[src], link[rel="stylesheet"]').evaluateAll(elements => elements.map(el => el.getAttribute('src') || el.getAttribute('href')))).filter(url => url.startsWith('assets/')).every(url => url.endsWith('?v=3.7.0')));
     }
     const hashes = JSON.parse(fs.readFileSync(path.join(root, 'docs/phase-3/baseline-hashes.json'), 'utf8').replace(/^\uFEFF/, ''));
     // Phase 6 deliberately changes app.js accessibility markup and keyboard behavior.

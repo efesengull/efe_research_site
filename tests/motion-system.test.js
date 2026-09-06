@@ -2,7 +2,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const http = require('node:http');
+const {createStaticServer} = require('./helpers');
 const {chromium} = require('playwright');
 const root = path.resolve(__dirname, '..');
 const output = path.resolve(root, process.env.TEST_OUTPUT_DIR || 'docs/phase-3');
@@ -12,13 +12,7 @@ function check(name, condition){
   assert.ok(condition, name);
   results.push(name);
 }
-const types = {'.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.webm': 'video/webm'};
-const server = http.createServer((req, res) => {
-  const file = path.resolve(root, '.' + decodeURIComponent(new URL(req.url, 'http://localhost').pathname));
-  if(!file.startsWith(root + path.sep) || !fs.existsSync(file) || !fs.statSync(file).isFile()) return res.writeHead(404).end();
-  res.setHeader('Content-Type', types[path.extname(file)] || 'application/octet-stream');
-  fs.createReadStream(file).pipe(res);
-});
+const server = createStaticServer(root);
 async function run(){
   fs.mkdirSync(output, {recursive: true});
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));

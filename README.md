@@ -33,7 +33,7 @@ Hero alanlarında optimize WebM video, özel 3D poster ve build sistemi gerektir
 
 Faz 1 ortak tasarım kararları `assets/css/styles.css` içindeki semantik token'larda tutulur. `research-os.css`, eski `--os-*` isimlerini bu token'lara bağlar ve sayfa kompozisyonunu yönetir. Yeni bileşenlerde aynı renk, tipografi, boşluk, radius ve hareket token'larını kullanın; ayrı bir tema paleti oluşturmayın. Kullanım kuralları ve doğrulama sonuçları: [Faz 1 tasarım sistemi](docs/phase-1.md).
 
-Beş sayfanın ortak asset sürümü `3.6.0`'dır. Bu sürüm önbellek içindir; finansal snapshot'ın `DATA_LOCK.version` değeriyle aynı olmak zorunda değildir.
+Beş sayfanın ortak asset sürümü `3.7.0`'dır. Bu sürüm önbellek içindir; finansal snapshot'ın `DATA_LOCK.version` değeriyle aynı olmak zorunda değildir.
 
 Faz 2, ana sayfadaki **Sinyalden Karara** bölümüdür. GARAN örneğinde piyasa sinyali, değerleme, risk analizi ve portföy kararı aynı tarihli araştırma setinden okunur. Yeterli ekran alanında doğal kaydırmaya eşlik eden sabit panel kullanılır; mobilde, kısa ekranda ve reduced-motion altında dört aşama sıralı görünür. JavaScript veya observer desteği olmadan da anlatım ve veriler erişilebilirdir. Kararlar ve kanıtlar: [Faz 2 raporu](docs/phase-2.md).
 
@@ -44,6 +44,35 @@ Faz 4 değerlendirmesinde WebGL eklenmedi. Mevcut Canvas 2D perspektifi, CSS anl
 Faz 5, dekoratif Canvas çizimini en fazla 30/s ile sınırlar; hareket hızı geçen zamandan hesaplanır. Mobil/kısa sahnelerde ve düşük kapasite sinyali olan cihazlarda DPR üst sınırı 1,25, diğerlerinde 1,8'dir. Video görünürlük kararı verilmeden ve veri tasarrufu açıkken başlamaz. TradingView scriptleri mevcut yapılandırmalarıyla kutuya 160 px yaklaşınca bir kez yüklenir; observer desteği yoksa doğrudan yüklenir. Ölçümler ve sınırlar: [Faz 5 raporu](docs/phase-5.md).
 
 Faz 6; klavye odağı, arama ve tablo semantiği, durum bildirimleri, büyütülmüş metin, korelasyon tablosunun klavyeyle kaydırılması ve dekoratif medya karşılıklarını iyileştirir. Sermaye alanı yazarken müdahale etmez; alan terk edildiğinde aynı hesaplama kuralları uygulanır. TradingView ticker bandı gizlenebilir; reduced-motion veya genel hareket durdurma altında iframe kaldırılır; tercih etkin olduğu sürece hareket başlatılmaz. Kararlar ve sınırlar: [Faz 6 raporu](docs/phase-6.md).
+
+## Faz 7 ortak yapı ve doğrulama
+
+`platform-ui.js` içindeki `motionPaused()` ve `observeMotionPreference()`; video, ticker, giriş animasyonu ve sayfa geçişi için aynı hareket tercihini kullanır. Bileşene özel görünürlük, veri tasarrufu ve ekran boyutu koşulları ilgili bileşende kalır. `createFrameTask()` bölüm göstergesi ve araştırma anlatımının ölçüm/güncelleme işlerini bir sonraki karede biriktirir; aynı iş için en fazla bir bekleyen kare tutar. `run()` bekleyen işi tüketir, `cancel()` iptal eder. Scroll güncellemeleri önceden ölçülmüş sınırları kullanmaya devam eder.
+
+CSS odak ve hareket kapatma kuralları aynı seçici öncelikleriyle ortaklaştırıldı. Canvas kendi çizim ve cihaz kapasitesi yönetimini korur. Yeni uygulama dosyası, global API veya bağımlılık eklenmedi; mevcut script sırası korunur. Ayrıntılar: [Faz 7 raporu](docs/phase-7.md).
+
+Beş standart tarayıcı testinin yerel dosya sunucusu `tests/helpers.js` içindedir. Önceki Git sürümünü sunan özel performans/axe tanıları kendi sunucularını korur. Aşağıdaki komutlar eski faz kanıtlarını ezmeden yeni sonuçları kaydeder:
+
+```powershell
+Get-ChildItem assets/js/*.js,tests/*.js | ForEach-Object { node --check $_.FullName }
+$env:TEST_OUTPUT_DIR='docs/phase-7/regression'
+node tests/research-story.test.js
+$env:TEST_OUTPUT_DIR='docs/phase-7/motion'
+node tests/motion-system.test.js
+$env:TEST_OUTPUT_DIR='docs/phase-7/depth'
+node tests/depth-background.test.js
+$env:TEST_OUTPUT_DIR='docs/phase-7/accessibility'
+node tests/accessibility.test.js
+$env:TEST_OUTPUT_DIR='docs/phase-7/performance'
+$env:PERF_FUNCTIONAL_ONLY='1'
+node tests/performance.test.js
+Remove-Item Env:PERF_FUNCTIONAL_ONLY
+$env:TEST_OUTPUT_DIR='docs/phase-7/quality'
+node tests/code-quality.test.js
+Remove-Item Env:TEST_OUTPUT_DIR
+```
+
+Yeni eşdeğerlik testi, Playwright/Edge'e ek olarak mevcut `sharp` test paketini ve başlangıç commit'i `5315494` olan Git geçmişini gerektirir. Checkout değiştirmeden 10 korunan dosyayı SHA-256 ile, beş HTML'yi yalnız asset sürümü farkına izin vererek karşılaştırır. Beş sayfayı dört boyutta önceki/güncel sürümle açar; tüm öğelerin geometrisini ve seçilmiş stillerini birebir karşılaştırır, ekran görüntülerindeki farklı pikselleri sayar. Kesirli sabit kenar çizgilerinin çizim farkı için en fazla %0,01 piksel toleransı vardır; gerçek sayılar raporlanır ve görseller incelenmelidir. Saat ve dekoratif rastgelelik yalnız test ortamında sabittir; reduced-motion açıktır, dış ağ kapalıdır. Bu test hareketli videoların her karesini veya gerçek sağlayıcı fiyatını doğrulamaz. Faz 7 sonunda 20 karşılaştırmanın tamamında farklı piksel sayısı sıfırdır.
 
 ## Faz 6 erişilebilirlik doğrulaması
 

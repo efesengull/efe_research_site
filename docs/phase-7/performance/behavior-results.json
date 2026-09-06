@@ -1,0 +1,19 @@
+{
+  "stage": "after",
+  "browser": "152.0.4191.66",
+  "method": "Headless Edge; 4x CPU slowdown; DPR 3; fresh context; local network; external requests blocked (widget lifecycle uses a labelled script fixture); 3 runs per page/viewport; 1.4s warmup + 1.6s sample. Instrumented Canvas submission timings; not GPU or field CWV.",
+  "passed": 9,
+  "results": [
+    "offscreen widgets defer all three third-party scripts on mobile",
+    "all widgets initialize once with complete HTML JSON config",
+    "return scrolling does not duplicate widget scripts",
+    "reduced: no decorative video request",
+    "save-data: no decorative video request",
+    "low-power backing buffer uses <= 1.25 DPR",
+    "deep-link: no decorative video request",
+    "observer fallback loads all widget scripts",
+    "no JavaScript runtime errors"
+  ],
+  "samples": [],
+  "errors": []
+}

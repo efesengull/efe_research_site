@@ -1,0 +1,374 @@
+{
+  "baseline": "5315494",
+  "checks": 56,
+  "results": [
+    {
+      "name": "assets/css/styles.css: SHA-256 unchanged",
+      "passed": true
+    },
+    {
+      "name": "assets/img/finance-depth-poster.webp: SHA-256 unchanged",
+      "passed": true
+    },
+    {
+      "name": "assets/img/logo.svg: SHA-256 unchanged",
+      "passed": true
+    },
+    {
+      "name": "assets/js/app.js: SHA-256 unchanged",
+      "passed": true
+    },
+    {
+      "name": "assets/js/data.js: SHA-256 unchanged",
+      "passed": true
+    },
+    {
+      "name": "assets/js/finance-3d-background.js: SHA-256 unchanged",
+      "passed": true
+    },
+    {
+      "name": "assets/js/live-adapter.js: SHA-256 unchanged",
+      "passed": true
+    },
+    {
+      "name": "assets/video/market-motion.webm: SHA-256 unchanged",
+      "passed": true
+    },
+    {
+      "name": "downloads/BIST_Kurumsal_Final_Degerleme.docx: SHA-256 unchanged",
+      "passed": true
+    },
+    {
+      "name": "downloads/BIST_Rapor_Efe_AI_Profesyonel_Final.docx: SHA-256 unchanged",
+      "passed": true
+    },
+    {
+      "name": "index.html: only asset version changed",
+      "passed": true
+    },
+    {
+      "name": "live.html: only asset version changed",
+      "passed": true
+    },
+    {
+      "name": "report.html: only asset version changed",
+      "passed": true
+    },
+    {
+      "name": "portfolio.html: only asset version changed",
+      "passed": true
+    },
+    {
+      "name": "methodology.html: only asset version changed",
+      "passed": true
+    },
+    {
+      "name": "index 1440: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "index 1440: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "live 1440: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "live 1440: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "report 1440: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "report 1440: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "portfolio 1440: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "portfolio 1440: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "methodology 1440: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "methodology 1440: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "index 1024: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "index 1024: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "live 1024: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "live 1024: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "report 1024: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "report 1024: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "portfolio 1024: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "portfolio 1024: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "methodology 1024: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "methodology 1024: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "index 768: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "index 768: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "live 768: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "live 768: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "report 768: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "report 768: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "portfolio 768: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "portfolio 768: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "methodology 768: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "methodology 768: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "index 390: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "index 390: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "live 390: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "live 390: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "report 390: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "report 390: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "portfolio 390: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "portfolio 390: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "methodology 390: all element geometry and sampled styles unchanged",
+      "passed": true
+    },
+    {
+      "name": "methodology 390: viewport pixel difference <= 0.01%",
+      "passed": true
+    },
+    {
+      "name": "no JavaScript runtime errors in either version",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "pixelComparisons": [
+    {
+      "name": "index",
+      "width": 1440,
+      "height": 900,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "live",
+      "width": 1440,
+      "height": 900,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "report",
+      "width": 1440,
+      "height": 900,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "portfolio",
+      "width": 1440,
+      "height": 900,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "methodology",
+      "width": 1440,
+      "height": 900,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "index",
+      "width": 1024,
+      "height": 768,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "live",
+      "width": 1024,
+      "height": 768,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "report",
+      "width": 1024,
+      "height": 768,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "portfolio",
+      "width": 1024,
+      "height": 768,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "methodology",
+      "width": 1024,
+      "height": 768,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "index",
+      "width": 768,
+      "height": 1024,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "live",
+      "width": 768,
+      "height": 1024,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "report",
+      "width": 768,
+      "height": 1024,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "portfolio",
+      "width": 768,
+      "height": 1024,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "methodology",
+      "width": 768,
+      "height": 1024,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "index",
+      "width": 390,
+      "height": 844,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "live",
+      "width": 390,
+      "height": 844,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "report",
+      "width": 390,
+      "height": 844,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "portfolio",
+      "width": 390,
+      "height": 844,
+      "changedPixels": 0,
+      "fraction": 0
+    },
+    {
+      "name": "methodology",
+      "width": 390,
+      "height": 844,
+      "changedPixels": 0,
+      "fraction": 0
+    }
+  ],
+  "method": "Local headless Edge; reduced motion; fixed test clock and decorative seed; third-party network blocked. Exact SHA-256 equality for all element rectangles/selected computed styles; at most 0.01% differing viewport pixels for fractional-border rasterization, actual counts recorded and screenshots retained for review. Not a moving-video, real-device or provider-price comparison."
+}

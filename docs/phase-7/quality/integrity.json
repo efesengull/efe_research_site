@@ -1,0 +1,55 @@
+{
+  "baseline": "5315494",
+  "files": [
+    {
+      "file": "assets/css/styles.css",
+      "previous": "0280505e87d7d167150f39843031b64f12b9446c6c0d45c20b6620e9acfed611",
+      "current": "0280505e87d7d167150f39843031b64f12b9446c6c0d45c20b6620e9acfed611"
+    },
+    {
+      "file": "assets/img/finance-depth-poster.webp",
+      "previous": "a0eec4919f9765059bfff14a922e043f7adc5c306a0ee5531851940ad7101321",
+      "current": "a0eec4919f9765059bfff14a922e043f7adc5c306a0ee5531851940ad7101321"
+    },
+    {
+      "file": "assets/img/logo.svg",
+      "previous": "3975018b110d9868fb93e0155fc527dd5a2ba32070665f965bfc8cb78f989401",
+      "current": "3975018b110d9868fb93e0155fc527dd5a2ba32070665f965bfc8cb78f989401"
+    },
+    {
+      "file": "assets/js/app.js",
+      "previous": "3d1addd746eac4ece73f7d9f567f93cd5ab610113c4dd1bdcfee700c2df1aece",
+      "current": "3d1addd746eac4ece73f7d9f567f93cd5ab610113c4dd1bdcfee700c2df1aece"
+    },
+    {
+      "file": "assets/js/data.js",
+      "previous": "eef42866bf710b0afb4432398e7eed74f89f984d5a3c3798fd24702f9e1807af",
+      "current": "eef42866bf710b0afb4432398e7eed74f89f984d5a3c3798fd24702f9e1807af"
+    },
+    {
+      "file": "assets/js/finance-3d-background.js",
+      "previous": "895120bd13ab9ecd79f1505c5b96292e0ca59eb4d98e160a4f224e7f5084a469",
+      "current": "895120bd13ab9ecd79f1505c5b96292e0ca59eb4d98e160a4f224e7f5084a469"
+    },
+    {
+      "file": "assets/js/live-adapter.js",
+      "previous": "9abe7e00d4603c6f7eabb739a242bf54b6a21dbc3a94e328bf3201384b216dcb",
+      "current": "9abe7e00d4603c6f7eabb739a242bf54b6a21dbc3a94e328bf3201384b216dcb"
+    },
+    {
+      "file": "assets/video/market-motion.webm",
+      "previous": "b23d94d10a7e02cbf02fb4ee773a03e2b6fe01a77a5f8689bf06076fe2d547ac",
+      "current": "b23d94d10a7e02cbf02fb4ee773a03e2b6fe01a77a5f8689bf06076fe2d547ac"
+    },
+    {
+      "file": "downloads/BIST_Kurumsal_Final_Degerleme.docx",
+      "previous": "b40d1cdc6ee137fc09aab3e21309f7dbc1ca7096ae90bcef8c6395a3107e362d",
+      "current": "b40d1cdc6ee137fc09aab3e21309f7dbc1ca7096ae90bcef8c6395a3107e362d"
+    },
+    {
+      "file": "downloads/BIST_Rapor_Efe_AI_Profesyonel_Final.docx",
+      "previous": "6a78663d8e625a75c3ea77cc1bcd9f1fcc162a0a096a0d2965d0d5d5ea8cdb63",
+      "current": "6a78663d8e625a75c3ea77cc1bcd9f1fcc162a0a096a0d2965d0d5d5ea8cdb63"
+    }
+  ]
+}

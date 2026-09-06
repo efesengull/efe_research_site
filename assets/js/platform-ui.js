@@ -2,14 +2,43 @@
   'use strict';
 
   const TIME_ZONE = 'Europe/Istanbul';
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  // Keep preference policy separate from each component's visibility policy.
+  function motionPaused(){
+    return reducedMotion.matches || document.documentElement.hasAttribute('data-motion-paused');
+  }
+
+  function observeMotionPreference(sync){
+    reducedMotion.addEventListener('change', sync);
+    window.addEventListener('efe:motion-change', sync);
+  }
+
+  // One pending frame per task; an immediate run also consumes queued work.
+  function createFrameTask(callback, enabled = () => !document.hidden){
+    let frame = 0;
+    function cancel(){
+      if(frame) cancelAnimationFrame(frame);
+      frame = 0;
+    }
+    function run(){
+      cancel();
+      if(enabled()) callback();
+    }
+    function schedule(){
+      if(!frame && enabled()) frame = requestAnimationFrame(run);
+    }
+    return {schedule, run, cancel};
+  }
+
   function handlePageTransition(event){
     if(!event.viewTransition) return;
     event.viewTransition.ready.catch(() => {});
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.hasAttribute('data-motion-paused')) event.viewTransition.skipTransition();
+    if(motionPaused()) event.viewTransition.skipTransition();
   }
   window.addEventListener('pageswap', handlePageTransition);
   window.addEventListener('pagereveal', handlePageTransition);
-  const tableLabels = {
+  const TABLE_LABELS = {
     'valuation-table': 'Değerleme panosu',
     'stock-table': 'Hisse araştırma evreni',
     'fund-table': 'Fon araştırma evreni',
@@ -246,7 +275,7 @@
     const body = table && table.tBodies[0];
     if(!table || !body || body.id === 'correlation-table') return;
 
-    const title = wrapper.dataset.tableTitle || tableLabels[body.id];
+    const title = wrapper.dataset.tableTitle || TABLE_LABELS[body.id];
     if(!title) return;
     wrapper.dataset.enhanced = 'true';
     wrapper.tabIndex = 0;
@@ -395,7 +424,6 @@
   }
 
   function manageHeroMedia(){
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
     const compact = window.matchMedia('(max-width: 560px), (pointer: coarse)');
     const connection = navigator.connection;
     const videos = [...document.querySelectorAll('.hero-video')];
@@ -404,17 +432,16 @@
 
     function sync(){
       videos.forEach(video => {
-        if(reduced.matches || compact.matches || connection?.saveData || document.hidden || document.documentElement.hasAttribute('data-motion-paused') || visibility.get(video) === false){
+        if(motionPaused() || compact.matches || connection?.saveData || document.hidden || visibility.get(video) === false){
           video.pause();
-          if(reduced.matches) video.currentTime = 0;
+          if(reducedMotion.matches) video.currentTime = 0;
         }else{
           video.play().catch(() => {});
         }
       });
     }
     document.addEventListener('visibilitychange', sync);
-    window.addEventListener('efe:motion-change', sync);
-    if(typeof reduced.addEventListener === 'function') reduced.addEventListener('change', sync);
+    observeMotionPreference(sync);
     if(typeof compact.addEventListener === 'function') compact.addEventListener('change', sync);
     if(connection?.addEventListener) connection.addEventListener('change', sync);
     if(typeof IntersectionObserver !== 'undefined'){
@@ -457,7 +484,6 @@
       const template = container.cloneNode(true);
       const placeholder = box.querySelector('.live-placeholder');
       const originalMessage = placeholder.textContent;
-      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
       let userPaused = false;
       let removed = false;
       const button = document.createElement('button');
@@ -466,7 +492,7 @@
       button.dataset.tickerToggle = '';
       box.before(button);
       function sync(){
-        const preferencePaused = reduced.matches || document.documentElement.hasAttribute('data-motion-paused');
+        const preferencePaused = motionPaused();
         const paused = preferencePaused || userPaused;
         button.disabled = preferencePaused;
         button.setAttribute('aria-pressed', String(paused));
@@ -485,8 +511,7 @@
         }
       }
       button.addEventListener('click', () => { userPaused = !userPaused; sync(); });
-      reduced.addEventListener('change', sync);
-      window.addEventListener('efe:motion-change', sync);
+      observeMotionPreference(sync);
       sync();
     }
     boxes.forEach(observe);
@@ -512,12 +537,11 @@
     let boundaries = [];
     let offset = 0;
     let maxScroll = 0;
-    let frame = 0;
-    let measureFrame = 0;
     let active = -1;
+    const updateTask = createFrameTask(update);
+    const measureTask = createFrameTask(measure);
 
     function update(){
-      frame = 0;
       if(document.hidden || !boundaries.length) return;
       let index = -1;
       boundaries.forEach((top, i) => { if(window.scrollY + offset >= top) index = i; });
@@ -534,39 +558,30 @@
       status.setAttribute('aria-label', index < 0 ? 'Bölümlerin başlangıcı' : `Bölüm ${index + 1} / ${links.length}: ${links[index].textContent}`);
       tabs.style.setProperty('--section-progress', (index + 1) / links.length);
     }
-    function schedule(){
-      if(!document.hidden && !frame) frame = requestAnimationFrame(update);
-    }
     function measure(){
-      measureFrame = 0;
       if(document.hidden) return;
       boundaries = sections.map(section => section.getBoundingClientRect().top + window.scrollY);
       maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
       offset = Math.max((parseFloat(getComputedStyle(tabs).top) || 0) + tabs.offsetHeight + 32, window.innerHeight * 0.3);
-      update();
+      updateTask.run();
     }
-    function scheduleMeasure(){
-      if(!document.hidden && !measureFrame) measureFrame = requestAnimationFrame(measure);
-    }
-    new ResizeObserver(scheduleMeasure).observe(document.body);
-    window.addEventListener('scroll', schedule, {passive: true});
-    window.addEventListener('resize', scheduleMeasure, {passive: true});
-    window.addEventListener('pageshow', scheduleMeasure);
+    new ResizeObserver(measureTask.schedule).observe(document.body);
+    window.addEventListener('scroll', updateTask.schedule, {passive: true});
+    window.addEventListener('resize', measureTask.schedule, {passive: true});
+    window.addEventListener('pageshow', measureTask.schedule);
     document.addEventListener('visibilitychange', () => {
       if(document.hidden){
-        cancelAnimationFrame(frame);
-        cancelAnimationFrame(measureFrame);
-        frame = measureFrame = 0;
-      }else scheduleMeasure();
+        updateTask.cancel();
+        measureTask.cancel();
+      }else measureTask.schedule();
     });
-    if(document.fonts) document.fonts.ready.then(scheduleMeasure);
+    if(document.fonts) document.fonts.ready.then(measureTask.schedule);
     active = -2;
-    measure();
+    measureTask.run();
   }
 
   function initMotion(){
     const root = document.documentElement;
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
     const hero = document.querySelector('.hero');
     const animations = new Map();
     const seen = new WeakSet();
@@ -584,7 +599,7 @@
       animations.delete(el);
     }
     function disabled(){
-      return reduced.matches || document.hidden || root.hasAttribute('data-motion-paused');
+      return motionPaused() || document.hidden;
     }
     function sync(){
       root.classList.toggle('is-page-hidden', document.hidden);
@@ -629,8 +644,7 @@
       animations.forEach((animation, el) => { if(el.contains(event.target)) cancel(el); });
     });
     document.addEventListener('visibilitychange', sync);
-    reduced.addEventListener('change', sync);
-    window.addEventListener('efe:motion-change', sync);
+    observeMotionPreference(sync);
     sync();
   }
 
@@ -646,9 +660,9 @@
     let boundaries = [];
     let active = -1;
     let visible = false;
-    let frame = 0;
-    let measureFrame = 0;
     let fits = true;
+    const updateTask = createFrameTask(update, () => mode.matches && fits && visible && !document.hidden);
+    const measureTask = createFrameTask(measure);
 
     function selectStep(index){
       if(index === active) return;
@@ -670,7 +684,6 @@
     }
 
     function update(){
-      frame = 0;
       if(!mode.matches || !fits || !visible || document.hidden) return;
       const position = window.scrollY + window.innerHeight * 0.45;
       let index = 0;
@@ -678,19 +691,13 @@
       selectStep(index);
     }
 
-    function scheduleUpdate(){
-      if(mode.matches && fits && visible && !document.hidden && !frame) frame = requestAnimationFrame(update);
-    }
-
     function measure(){
-      measureFrame = 0;
       if(document.hidden) return;
       fits = true;
       story.classList.toggle('is-pinned', mode.matches);
       board.hidden = !mode.matches;
       if(!mode.matches){
-        cancelAnimationFrame(frame);
-        frame = 0;
+        updateTask.cancel();
         return;
       }
       // Read geometry only on initial layout / resize, never in the scroll handler.
@@ -717,17 +724,14 @@
       const position = window.scrollY + window.innerHeight * 0.45;
       boundaries.forEach((boundary, i) => { if(position >= boundary) index = i; });
       selectStep(index);
-      scheduleUpdate();
+      updateTask.schedule();
     }
 
-    function scheduleMeasure(){
-      if(!document.hidden && !measureFrame) measureFrame = requestAnimationFrame(measure);
-    }
     const observer = new IntersectionObserver(entries => {
       visible = entries[0].isIntersecting;
       story.classList.toggle('is-story-visible', visible && !document.hidden);
-      if(visible) scheduleUpdate();
-      else { cancelAnimationFrame(frame); frame = 0; }
+      if(visible) updateTask.schedule();
+      else updateTask.cancel();
     });
     observer.observe(story);
     // Body height changes include late content above the story and font reflow.
@@ -738,25 +742,23 @@
       if(width === previousWidth && height === previousHeight) return;
       previousWidth = width;
       previousHeight = height;
-      scheduleMeasure();
+      measureTask.schedule();
     });
     resizeObserver.observe(document.body);
-    window.addEventListener('scroll', scheduleUpdate, {passive: true});
-    window.addEventListener('resize', scheduleMeasure, {passive: true});
-    window.addEventListener('pageshow', scheduleMeasure);
-    window.addEventListener('load', scheduleMeasure, {once: true});
-    mode.addEventListener('change', scheduleMeasure);
+    window.addEventListener('scroll', updateTask.schedule, {passive: true});
+    window.addEventListener('resize', measureTask.schedule, {passive: true});
+    window.addEventListener('pageshow', measureTask.schedule);
+    window.addEventListener('load', measureTask.schedule, {once: true});
+    mode.addEventListener('change', measureTask.schedule);
     document.addEventListener('visibilitychange', () => {
       story.classList.toggle('is-story-visible', visible && !document.hidden);
       if(document.hidden){
-        cancelAnimationFrame(frame);
-        cancelAnimationFrame(measureFrame);
-        frame = 0;
-        measureFrame = 0;
-      }else scheduleMeasure();
+        updateTask.cancel();
+        measureTask.cancel();
+      }else measureTask.schedule();
     });
-    if(document.fonts) document.fonts.ready.then(scheduleMeasure);
-    measure();
+    if(document.fonts) document.fonts.ready.then(measureTask.schedule);
+    measureTask.run();
   }
 
   function init(){

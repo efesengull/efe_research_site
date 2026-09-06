@@ -1,7 +1,7 @@
 // Local browser accessibility regression checks; no build or axe dependency.
 const fs = require('node:fs');
 const path = require('node:path');
-const http = require('node:http');
+const {createStaticServer} = require('./helpers');
 const {chromium} = require('playwright');
 const root = path.resolve(__dirname, '..');
 const output = path.resolve(root, process.env.TEST_OUTPUT_DIR || 'docs/phase-6');
@@ -14,17 +14,7 @@ function check(name, condition, detail){
   results.push({name, passed: Boolean(condition), ...(detail ? {detail} : {})});
   if(!condition) console.error(`FAIL: ${name}${detail ? ` — ${JSON.stringify(detail)}` : ''}`);
 }
-const types = {'.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.webm': 'video/webm'};
-const server = http.createServer((req, res) => {
-  const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
-  const file = path.resolve(root, '.' + (pathname === '/' ? '/index.html' : pathname));
-  if(!file.startsWith(root + path.sep) || !fs.existsSync(file) || !fs.statSync(file).isFile()){
-    res.writeHead(404).end();
-    return;
-  }
-  res.setHeader('Content-Type', types[path.extname(file)] || 'application/octet-stream');
-  fs.createReadStream(file).pipe(res);
-});
+const server = createStaticServer(root);
 
 async function scenario(name, operation){
   try{ await operation(); }
